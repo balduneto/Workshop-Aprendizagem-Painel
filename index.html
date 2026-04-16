@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Infográfico Interativo: Aprendizagem Industrial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- React e ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Desabilita seleção de texto nativa para parecer um App de TV */
+        body {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Estilos do Slider otimizados para toque (mais grossos) */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            margin-top: -12px;
+            border: 6px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 16px;
+            cursor: pointer;
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+
+        /* Animações customizadas */
+        .fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Esconder scrollbar na horizontal mas permitir scroll */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- DADOS ---
+        const timelineEvents = [
+            { year: '1942', title: 'O Nascimento', desc: 'Criação do SENAI e Decreto-Lei nº 4.481 obriga indústrias a contratar aprendizes. A aprendizagem nasce como projeto de industrialização do país.', icon: 'fa-industry' },
+            { year: '2000', title: 'A Modernização', desc: 'Lei nº 10.097 moderniza a política e consolida a aprendizagem como a porta de entrada oficial do jovem no trabalho formal.', icon: 'fa-file-signature' },
+            { year: '2018', title: 'A Consolidação', desc: 'Decreto nº 9.579 consolida todos os atos normativos sobre criança, adolescente e o jovem aprendiz em um único documento.', icon: 'fa-book' },
+            { year: '2023', title: 'Inclusão & Atualização', desc: 'Decreto nº 11.479 reafirma a faixa etária (14-24 anos) e a isenção de idade limite para Pessoas com Deficiência (PcD).', icon: 'fa-wheelchair' },
+            { year: '2024', title: 'O Diálogo', desc: 'Decreto nº 11.876 recria o Fórum Nacional da Aprendizagem Profissional, fortalecendo a governança da política pública.', icon: 'fa-comments' }
+        ];
+
+        const impactNumbers = [
+            { id: 1, value: '+92 Milhões', label: 'Trabalhadores formados pela rede SENAI desde sua fundação.', icon: 'fa-users' },
+            { id: 2, value: '88,5%', label: 'Empregabilidade de ex-alunos de Aprendizagem Industrial em até 1 ano.', icon: 'fa-briefcase' },
+            { id: 3, value: '633.720', label: 'Aprendizes com vínculo formal ativo no Brasil (Ref: Fev/2025).', icon: 'fa-id-card' },
+            { id: 4, value: '90,5%', label: 'Índice de preferência das indústrias por egressos formados pelo SENAI.', icon: 'fa-star' }
+        ];
+
+        const corporateCases = [
+            { id: 'bosch', name: 'Grupo Bosch', model: 'Modelo Dual', desc: 'Programa focado em tecnologia. 438 alunos passaram pela academia em 4 anos, com 9 em cada 10 egressos já trabalhando na área. A meta da empresa é treinar talentos contínuos para a Indústria 4.0.', logo: 'fa-tools' },
+            { id: 'vale', name: 'Vale', model: 'Imersão & Simuladores', desc: '18 meses de formação integrando teoria e "on-the-job training". Cerca de 450 vagas abertas em 2024. A empresa utiliza simuladores de última geração antes de levar os jovens à área operacional.', logo: 'fa-mountain' },
+            { id: 'petro', name: 'Petrobras', model: 'Benefícios & Escala', desc: 'Mais de 700 vagas em 2025. Oferece salário, benefícios CLT e capacitação tecnológica em contrato de 21 meses. Abrange múltiplos estados do país com forte apelo social.', logo: 'fa-gas-pump' },
+            { id: 'weg', name: 'WEG', model: 'Tradição (CentroWEG)', desc: 'Forma jovens desde 1968. Referência em alta aderência e absorção pelo próprio parque fabril da empresa. O CentroWEG é um dos maiores cases de retenção de talentos do mundo.', logo: 'fa-bolt' }
+        ];
+
+        const careerTrails = {
+            tecnologia: {
+                icon: 'fas fa-microchip',
+                name: 'Tecnologia da Informação',
+                steps: [
+                    { role: 'Aprendiz em TI', desc: 'Manutenção de Computadores e Redes' },
+                    { role: 'Técnico de Nível Médio', desc: 'Técnico em Desenvolvimento de Sistemas' },
+                    { role: 'Estagiário / Junior', desc: 'Desenvolvedor Junior' },
+                    { role: 'Especialista', desc: 'Arquiteto de Software Industrial' }
+                ]
+            },
+            manufatura: {
+                icon: 'fas fa-industry',
+                name: 'Manufatura & Automação',
+                steps: [
+                    { role: 'Aprendiz Industrial', desc: 'Mecânica Básica / Usinagem' },
+                    { role: 'Técnico Especializado', desc: 'Mecatrônica ou Eletrotécnica' },
+                    { role: 'Trainee Fabril', desc: 'Operador de Máquinas CNC e Robótica' },
+                    { role: 'Liderança', desc: 'Gestor de Planta (Lean Manufacturing)' }
+                ]
+            }
+        };
+
+        // --- COMPONENTES ---
+
+        // Modal Component para Touch
+        const Modal = ({ isOpen, onClose, data }) => {
+            if (!isOpen) return null;
+            return (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" onClick={onClose}>
+                    <div className="bg-white rounded-3xl p-10 max-w-2xl w-full fade-in-up shadow-2xl relative" onClick={e => e.stopPropagation()}>
+                        <button onClick={onClose} className="absolute top-6 right-6 w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 active:bg-slate-200 active:scale-95 transition-all text-2xl">
+                            <i className="fas fa-times"></i>
+                        </button>
+                        <div className="flex items-center space-x-6 mb-8">
+                            <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-4xl">
+                                <i className={`fas ${data.logo}`}></i>
+                            </div>
+                            <div>
+                                <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full uppercase">{data.model}</span>
+                                <h3 className="font-black text-4xl mt-2">{data.name}</h3>
+                            </div>
+                        </div>
+                        <p className="text-2xl text-slate-600 leading-relaxed">{data.desc}</p>
+                        <button onClick={onClose} className="mt-10 w-full py-5 bg-blue-600 text-white rounded-2xl text-xl font-bold active:bg-blue-700 active:scale-95 transition-all">
+                            Fechar e Voltar
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        function App() {
+            // Estados do Touch
+            const [activeYear, setActiveYear] = useState(timelineEvents[0].year);
+            const [revealedNumbers, setRevealedNumbers] = useState({});
+            const [quotaBase, setQuotaBase] = useState(150);
+            const [includeHazardous, setIncludeHazardous] = useState(true);
+            const [selectedTrail, setSelectedTrail] = useState('manufatura');
+            const [activeCaseModal, setActiveCaseModal] = useState(null);
+
+            // Ações Touch
+            const toggleNumber = (id) => {
+                setRevealedNumbers(prev => ({ ...prev, [id]: !prev[id] }));
+            };
+
+            const adjustQuota = (amount) => {
+                setQuotaBase(prev => {
+                    const newValue = prev + amount;
+                    return newValue >= 10 && newValue <= 2000 ? newValue : prev;
+                });
+            };
+
+            const minQuota = Math.ceil(quotaBase * 0.05);
+            const maxQuota = Math.ceil(quotaBase * 0.15);
+            const activeEvent = timelineEvents.find(e => e.year === activeYear);
+
+            return (
+                <div className="min-h-screen pb-20">
+                    
+                    {/* CABEÇALHO */}
+                    <header className="bg-white border-b border-slate-200 pt-10 pb-16 px-8 lg:px-16 relative overflow-hidden">
+                        <div className="max-w-7xl mx-auto relative z-10">
+                            
+                            {/* Logomarcas */}
+                            <div className="flex flex-row justify-between items-center w-full mb-12 z-20">
+                                <img src="https://i.postimg.cc/Xqm6wy5p/marca-aprendizagem-PRO-02.png" alt="Logomarca Aprendizagem PRO" className="h-20 md:h-28 object-contain" />
+                                <img src="https://i.postimg.cc/gkZfCjRv/marca-4º-workshop-01.png" alt="Logomarca 4º Workshop" className="h-20 md:h-28 object-contain" />
+                            </div>
+
+                            <div className="pt-4 text-center md:text-left">
+                                <div className="inline-flex items-center space-x-3 bg-blue-50 text-blue-700 px-6 py-3 rounded-full text-lg font-bold mb-6">
+                                    <i className="fas fa-hand-pointer text-xl animate-bounce"></i>
+                                    <span>Toque na tela para interagir</span>
+                                </div>
+                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900">
+                                    Aprendizagem <span className="text-blue-600">Industrial</span>
+                                </h1>
+                                <p className="text-2xl text-slate-600 max-w-4xl leading-relaxed">
+                                    O motor do projeto de industrialização do Brasil. Uma ponte sólida entre a juventude, a educação e o futuro do mercado de trabalho.
+                                </p>
+                            </div>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-8 lg:px-16 py-16 space-y-32">
+                        
+                        {/* 1. TIMELINE INTERATIVA TOUCH */}
+                        <section>
+                            <h2 className="text-4xl font-bold mb-8 flex items-center">
+                                <i className="fas fa-history text-blue-600 mr-4"></i> Toque para explorar a História
+                            </h2>
+                            
+                            {/* Barra de Anos Rolável */}
+                            <div className="flex space-x-4 overflow-x-auto hide-scroll pb-6 mb-4 px-2">
+                                {timelineEvents.map((event) => (
+                                    <button 
+                                        key={event.year}
+                                        onClick={() => setActiveYear(event.year)}
+                                        className={`flex-shrink-0 px-8 py-5 rounded-2xl text-2xl font-black transition-all active:scale-95 ${
+                                            activeYear === event.year 
+                                            ? 'bg-blue-600 text-white shadow-xl shadow-blue-200' 
+                                            : 'bg-white text-slate-400 border-2 border-slate-200'
+                                        }`}
+                                    >
+                                        {event.year}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Conteúdo do Ano Selecionado */}
+                            <div key={activeYear} className="fade-in-up bg-white p-10 rounded-3xl border border-slate-200 shadow-lg flex items-start space-x-8">
+                                <div className="w-24 h-24 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-4xl flex-shrink-0">
+                                    <i className={`fas ${activeEvent.icon}`}></i>
+                                </div>
+                                <div>
+                                    <h3 className="text-4xl font-black text-slate-900 mb-4">{activeEvent.title}</h3>
+                                    <p className="text-2xl text-slate-600 leading-relaxed">{activeEvent.desc}</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* 2. NÚMEROS OCULTOS (TAP TO REVEAL) */}
+                        <section className="bg-slate-900 text-white rounded-[3rem] p-12 lg:p-16 relative overflow-hidden">
+                            <h2 className="text-4xl font-bold mb-12 flex items-center z-10 relative">
+                                <i className="fas fa-hand-sparkles text-blue-400 mr-4"></i> Descubra os Grandes Números
+                            </h2>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 z-10 relative">
+                                {impactNumbers.map((stat) => (
+                                    <div 
+                                        key={stat.id} 
+                                        onClick={() => toggleNumber(stat.id)}
+                                        className={`cursor-pointer rounded-3xl p-8 transition-all active:scale-95 min-h-[200px] flex flex-col justify-center border-2 ${
+                                            revealedNumbers[stat.id] 
+                                            ? 'bg-blue-600 border-blue-500' 
+                                            : 'bg-slate-800 border-slate-700 hover:bg-slate-700'
+                                        }`}
+                                    >
+                                        {!revealedNumbers[stat.id] ? (
+                                            <div className="text-center">
+                                                <i className={`fas ${stat.icon} text-6xl text-slate-500 mb-4`}></i>
+                                                <p className="text-xl text-slate-400 font-bold uppercase tracking-widest">Toque para revelar</p>
+                                            </div>
+                                        ) : (
+                                            <div className="fade-in-up text-center">
+                                                <div className="text-5xl lg:text-6xl font-black mb-4">{stat.value}</div>
+                                                <div className="text-blue-100 text-xl font-medium leading-snug">{stat.label}</div>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* 3. SIMULADOR DE COTAS (BOTÕES GRANDES) */}
+                        <section className="bg-white p-12 rounded-[3rem] border border-slate-200 shadow-xl">
+                            <div className="mb-10 text-center">
+                                <h2 className="text-4xl font-bold mb-4 text-slate-800">
+                                    <i className="fas fa-calculator text-blue-600 mr-4"></i> Simulador de Cotas
+                                </h2>
+                                <p className="text-2xl text-slate-600">Simule agora a obrigação legal da sua empresa (5% a 15% da base).</p>
+                            </div>
+                            
+                            <div className="max-w-4xl mx-auto">
+                                <div className="bg-slate-50 p-10 rounded-3xl border border-slate-200 mb-10">
+                                    <label className="block text-2xl font-bold text-center text-slate-700 mb-8">
+                                        Número de Trabalhadores na Base de Cálculo (CBO)
+                                    </label>
+                                    
+                                    {/* Controles Gigantes para Touch */}
+                                    <div className="flex items-center justify-center space-x-6 mb-8">
+                                        <button onClick={() => adjustQuota(-10)} className="w-20 h-20 bg-slate-200 text-slate-700 rounded-full text-4xl font-black active:bg-slate-300 active:scale-90 transition-all shadow-sm">
+                                            <i className="fas fa-minus"></i>
+                                        </button>
+                                        
+                                        <div className="text-center w-48">
+                                            <span className="font-black text-7xl text-blue-600 block">{quotaBase}</span>
+                                        </div>
+
+                                        <button onClick={() => adjustQuota(10)} className="w-20 h-20 bg-blue-600 text-white rounded-full text-4xl font-black active:bg-blue-700 active:scale-90 transition-all shadow-md">
+                                            <i className="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+
+                                    <input 
+                                        type="range" min="10" max="1000" step="10"
+                                        value={quotaBase} 
+                                        onChange={(e) => setQuotaBase(Number(e.target.value))}
+                                        className="w-full h-4 mb-4"
+                                    />
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-8">
+                                    <div className="bg-slate-100 py-10 rounded-3xl text-center shadow-inner">
+                                        <div className="text-xl text-slate-500 font-bold uppercase mb-2">Cota Mínima (5%)</div>
+                                        <div className="text-7xl font-black text-slate-800">{minQuota}</div>
+                                    </div>
+                                    <div className="bg-blue-50 py-10 rounded-3xl text-center border-2 border-blue-200">
+                                        <div className="text-xl text-blue-700 font-bold uppercase mb-2">Cota Máxima (15%)</div>
+                                        <div className="text-7xl font-black text-blue-700">{maxQuota}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* 4. TRILHAS COM BOTÕES GRANDES */}
+                        <section className="text-center">
+                            <h2 className="text-4xl font-bold mb-8">
+                                <i className="fas fa-road text-blue-600 mr-4"></i> Construa Trilhas de Carreira
+                            </h2>
+                            <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
+                                {Object.keys(careerTrails).map(key => (
+                                    <button
+                                        key={key}
+                                        onClick={() => setSelectedTrail(key)}
+                                        className={`px-10 py-6 rounded-full text-2xl font-bold flex items-center justify-center transition-all active:scale-95 ${
+                                            selectedTrail === key 
+                                            ? 'bg-blue-600 text-white shadow-xl' 
+                                            : 'bg-white text-slate-600 border-2 border-slate-200'
+                                        }`}
+                                    >
+                                        <i className={`${careerTrails[key].icon} mr-4 text-3xl`}></i>
+                                        {careerTrails[key].name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                                {/* Linha conectora desktop */}
+                                <div className="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-blue-100 -translate-y-1/2 z-0"></div>
+                                
+                                {careerTrails[selectedTrail].steps.map((step, idx) => (
+                                    <div key={idx} className="fade-in-up bg-white p-8 rounded-3xl shadow-lg border border-slate-100 relative z-10 active:scale-95 transition-transform" style={{animationDelay: `${idx * 0.1}s`}}>
+                                        <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-md border-4 border-white">
+                                            {idx + 1}
+                                        </div>
+                                        <h4 className="font-bold text-2xl text-slate-800 mb-3">{step.role}</h4>
+                                        <p className="text-lg text-slate-500">{step.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* 5. CASES DE SUCESSO (MODAL) */}
+                        <section className="bg-slate-100 p-12 rounded-[3rem]">
+                            <h2 className="text-4xl font-bold mb-10 text-center">
+                                <i className="fas fa-star text-yellow-500 mr-4"></i> Quem Contrata, Comprova
+                            </h2>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {corporateCases.map((company) => (
+                                    <div 
+                                        key={company.id} 
+                                        onClick={() => setActiveCaseModal(company)}
+                                        className="bg-white p-8 rounded-3xl shadow-md flex items-center justify-between cursor-pointer active:scale-95 transition-all border-2 border-transparent hover:border-blue-400"
+                                    >
+                                        <div className="flex items-center space-x-6">
+                                            <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-4xl text-slate-600">
+                                                <i className={`fas ${company.logo}`}></i>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-black text-3xl">{company.name}</h3>
+                                                <p className="text-blue-600 font-bold uppercase text-sm mt-1">{company.model}</p>
+                                            </div>
+                                        </div>
+                                        <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl">
+                                            <i className="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                    </main>
+
+                    {/* Modal Render */}
+                    <Modal 
+                        isOpen={!!activeCaseModal} 
+                        onClose={() => setActiveCaseModal(null)} 
+                        data={activeCaseModal} 
+                    />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
