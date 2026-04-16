@@ -350,9 +350,14 @@
 
                         {/* 5. TRILHAS DE CARREIRA COM EVOLUÇÃO SALARIAL */}
                         <section className="text-center bg-slate-900 p-12 lg:p-16 rounded-[3rem] text-white">
-                            <h2 className="text-4xl font-bold mb-4">
-                                <i className="fas fa-chart-line text-green-400 mr-4"></i> O Impacto na Renda Familiar
-                            </h2>
+                            <div className="flex flex-col items-center justify-center mb-4">
+                                <div className="bg-green-900/50 border border-green-500/50 text-green-400 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-4 flex items-center">
+                                    <i className="fas fa-check-circle mr-2"></i> Dados Reais de Mercado (2024 - 2026)
+                                </div>
+                                <h2 className="text-4xl font-bold">
+                                    <i className="fas fa-chart-line text-green-400 mr-4"></i> O Impacto na Renda Familiar
+                                </h2>
+                            </div>
                             <p className="text-2xl text-slate-400 mb-10 max-w-4xl mx-auto">
                                 Veja como a aprendizagem impulsiona não apenas a carreira, mas o poder aquisitivo do jovem ao longo do tempo.
                             </p>
@@ -389,6 +394,29 @@
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* PAINEL DE FONTES APRIMORADO E EM DESTAQUE */}
+                            <div className="mt-16 bg-slate-800 p-8 rounded-3xl border border-slate-600 text-left flex flex-col md:flex-row items-center md:items-start gap-8 max-w-5xl mx-auto shadow-2xl">
+                                <div className="w-20 h-20 bg-slate-700 rounded-full flex items-center justify-center text-4xl text-slate-400 flex-shrink-0">
+                                    <i className="fas fa-database"></i>
+                                </div>
+                                <div>
+                                    <h4 className="text-2xl text-white font-bold mb-4 flex items-center">
+                                        Fontes e Base de Dados: Médias do Estado de Goiás (2024 - 2026)
+                                    </h4>
+                                    <ul className="text-lg text-slate-300 space-y-3 mb-6">
+                                        <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>CAGED / MTE:</strong> Registros oficiais de admissão em regime CLT no estado.</li>
+                                        <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>Salario.com.br:</strong> Consolidação estatística das ocupações (CBO) focada especificamente no <strong>mercado goiano</strong>.</li>
+                                        <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>LinkedIn Insights:</strong> Projeção de remuneração regional para especialistas em TI e Manufatura Avançada nas indústrias de Goiás.</li>
+                                    </ul>
+                                    <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                                        <p className="text-sm text-slate-400 leading-relaxed">
+                                            <i className="fas fa-info-circle mr-2"></i>
+                                            <em><strong>Nota sobre o Aprendiz:</strong> O valor inicial (aprox. R$ 850) é uma referência proporcional a uma carga horária de 4 a 6 horas diárias, vinculada ao Salário Mínimo vigente ou piso da categoria regional em Goiás. Os percentuais ilustram o salto de poder aquisitivo real ao longo da trilha dentro da economia local.</em>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
