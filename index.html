@@ -63,13 +63,44 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // --- DADOS ---
+        // --- DADOS DO APLICATIVO ---
+
         const timelineEvents = [
-            { year: '1942', title: 'O Nascimento', desc: 'Criação do SENAI e Decreto-Lei nº 4.481 obriga indústrias a contratar aprendizes.', icon: 'fa-industry' },
-            { year: '2000', title: 'A Modernização', desc: 'Lei nº 10.097 consolida a aprendizagem como porta de entrada no trabalho formal.', icon: 'fa-file-signature' },
-            { year: '2018', title: 'A Consolidação', desc: 'Decreto nº 9.579 consolida atos normativos sobre o jovem aprendiz em um único documento.', icon: 'fa-book' },
-            { year: '2023', title: 'Inclusão', desc: 'Decreto nº 11.479 reafirma a faixa etária (14-24 anos) e isenção de idade limite para PcD.', icon: 'fa-wheelchair' },
-            { year: '2024', title: 'O Diálogo', desc: 'Decreto nº 11.876 recria o Fórum Nacional da Aprendizagem Profissional.', icon: 'fa-comments' }
+            { 
+                year: '1942', 
+                title: 'O Despertar da Indústria', 
+                desc: 'Mais do que um decreto, 1942 marca o momento em que o Brasil decidiu ser gigante. A criação do SENAI e da Aprendizagem nasceu da convicção de que nenhuma nação se desenvolve sem investir nas mãos e mentes de sua juventude.', 
+                icon: 'fa-industry',
+                image: 'https://i.postimg.cc/0jQcjrXM/Senai-primeira-unidade.jpg'
+            },
+            { 
+                year: '2000', 
+                title: 'A Porta da Cidadania', 
+                desc: 'A Lei da Aprendizagem (10.097) transformou o chão de fábrica em uma extensão da sala de aula. O foco deixou de ser apenas a "mão de obra" para focar no cidadão, criando um escudo contra a evasão escolar e o ciclo de pobreza.', 
+                icon: 'fa-user-graduate',
+                image: 'https://i.postimg.cc/XJvwcmKj/Gemini-Generated-Image-z321smz321smz321.png'
+            },
+            { 
+                year: '2018', 
+                title: 'O Escudo de Proteção', 
+                desc: 'O Decreto nº 9.579 unificou as leis para garantir que a inserção do jovem no mercado seja sinônimo de crescimento, nunca de exploração. A aprendizagem se consolida definitivamente como a política pública de juventude mais eficaz do país.', 
+                icon: 'fa-shield-alt',
+                image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80'
+            },
+            { 
+                year: '2023', 
+                title: 'O Futuro é Inclusivo', 
+                desc: 'Não há inovação sem diversidade. O novo marco reafirma que a oportunidade deve chegar a todos, retirando o limite de idade para Pessoas com Deficiência (PcD). O mercado de trabalho como um espaço de pertencimento universal.', 
+                icon: 'fa-hands-helping',
+                image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80'
+            },
+            { 
+                year: '2024', 
+                title: 'O Pacto pela Juventude', 
+                desc: 'A recriação do Fórum Nacional da Aprendizagem devolve a voz aos protagonistas: indústria, governo e sociedade civil sentados à mesma mesa. Um pacto renovado para alinhar a formação dos jovens às exigências da Indústria 4.0.', 
+                icon: 'fa-comments',
+                image: 'https://i.postimg.cc/FzNYmnpD/Gemini-Generated-Image-a3upfga3upfga3up.png'
+            }
         ];
 
         const impactNumbers = [
@@ -79,12 +110,11 @@
             { id: 4, value: '90,5%', label: 'Das indústrias preferem contratar egressos formados pelo SENAI.', icon: 'fa-star' }
         ];
 
-        // CASES FOCADOS EM GOIÁS
         const goiasCases = [
-            { id: 'hypera', name: 'Polo Farmoquímico', model: 'Anápolis / Aparecida', desc: 'Gigantes do setor farmoquímico em Goiás, como a Hypera Pharma, absorvem maciçamente aprendizes do SENAI para atuar em rotinas laboratoriais, logística avançada e automação industrial, focando na sucessão interna.', logo: 'fa-pills' },
-            { id: 'caoa', name: 'Polo Automotivo', model: 'Anápolis / Catalão', desc: 'Montadoras instaladas em Goiás transformam jovens aprendizes em especialistas. O treinamento em mecatrônica e robótica automotiva garante mão de obra altamente qualificada para linhas de montagem de precisão.', logo: 'fa-car' },
-            { id: 'agro', name: 'Agroindústria (Alimentos)', model: 'Rio Verde / Goiânia', desc: 'O motor do agronegócio goiano, representado por indústrias de processamento e proteína animal, integra jovens na manutenção mecânica, elétrica e refrigeração, essenciais para a continuidade produtiva ininterrupta.', logo: 'fa-leaf' },
-            { id: 'mineracao', name: 'Mineração & Minerais', model: 'Norte Goiano / Catalão', desc: 'Operações complexas de mineração e beneficiamento utilizam o modelo de imersão e simuladores. Aprendizes passam por intensa carga teórica antes do "on-the-job training" com rigorosos padrões de segurança.', logo: 'fa-hard-hat' }
+            { id: 'hypera', name: 'Polo Farmoquímico', model: 'Anápolis / Aparecida', desc: 'Gigantes do setor farmoquímico em Goiás absorvem maciçamente aprendizes do SENAI para atuar em rotinas laboratoriais, logística avançada e automação industrial, focando na sucessão interna.', logo: 'fa-pills' },
+            { id: 'caoa', name: 'Polo Automotivo', model: 'Anápolis / Catalão', desc: 'Montadoras instaladas em Goiás transformam jovens aprendizes em especialistas. O treinamento em mecatrônica garante mão de obra altamente qualificada para linhas de montagem de precisão.', logo: 'fa-car' },
+            { id: 'agro', name: 'Agroindústria', model: 'Rio Verde / Goiânia', desc: 'O motor do agronegócio goiano integra jovens na manutenção mecânica, elétrica e refrigeração, essenciais para a continuidade produtiva ininterrupta.', logo: 'fa-leaf' },
+            { id: 'mineracao', name: 'Mineração', model: 'Norte Goiano / Catalão', desc: 'Operações complexas de mineração utilizam o modelo de imersão e simuladores. Aprendizes passam por intensa carga teórica antes do "on-the-job training".', logo: 'fa-hard-hat' }
         ];
 
         const careerTrails = {
@@ -95,7 +125,7 @@
                     { role: 'Aprendiz Industrial', desc: 'Mecânica Básica / Usinagem', salary: 'R$ 850*', tag: 'Partida', trend: 'neutral' },
                     { role: 'Técnico Especializado', desc: 'Mecatrônica ou Eletrotécnica', salary: 'R$ 3.550', tag: '+317%', trend: 'up' },
                     { role: 'Operador Especializado', desc: 'Usinagem CNC e Robótica', salary: 'R$ 5.200', tag: '+511%', trend: 'up' },
-                    { role: 'Engenheiro de Automação', desc: 'Gestor de Planta / Lean', salary: 'R$ 12.800', tag: '+1.405%', trend: 'up' }
+                    { role: 'Engenheiro Fabril', desc: 'Gestor de Planta / Lean', salary: 'R$ 12.800', tag: '+1.405%', trend: 'up' }
                 ]
             },
             tecnologia: {
@@ -105,25 +135,70 @@
                     { role: 'Aprendiz em TI', desc: 'Manutenção e Suporte Básico', salary: 'R$ 850*', tag: 'Partida', trend: 'neutral' },
                     { role: 'Técnico de Sistemas', desc: 'Desenvolvimento e BD', salary: 'R$ 3.100', tag: '+264%', trend: 'up' },
                     { role: 'Desenvolvedor Júnior', desc: 'Automação / Software Ind. 4.0', salary: 'R$ 4.850', tag: '+470%', trend: 'up' },
-                    { role: 'Arquiteto de Software', desc: 'Liderança Técnica de Projetos', salary: 'R$ 14.500', tag: '+1.605%', trend: 'up' }
+                    { role: 'Arquiteto de Software', desc: 'Liderança Técnica', salary: 'R$ 14.500', tag: '+1.605%', trend: 'up' }
                 ]
             }
         };
 
-        // DADOS DO FAQ DA LEGISLAÇÃO (Inspirado nos botões da imagem)
         const faqLegislao = [
             { id: 'unidades', title: 'UNIDADES', color: 'bg-blue-600', hoverColor: 'hover:bg-blue-700', icon: 'fa-map-marker-alt', titleText: 'Onde Encontrar o SENAI', desc: 'O SENAI-GO possui 16 unidades operacionais e 11 unidades móveis espalhadas pelo estado. O ecossistema está estrategicamente posicionado em Goiânia, Anápolis, Aparecida, Rio Verde e outras cidades chave para atender a indústria local.' },
-            { id: 'emprego', title: 'EMPREGO', color: 'bg-green-500', hoverColor: 'hover:bg-green-600', icon: 'fa-briefcase', titleText: 'O Primeiro Emprego Formal', desc: 'A aprendizagem NÃO é estágio. É um emprego com Carteira de Trabalho assinada! O jovem garante salário (baseado na hora/mínima), 13º salário, férias (coincidentes com o recesso escolar) e FGTS (alíquota especial de 2%). É o passaporte para o mercado.' },
-            { id: 'legislacao', title: 'LEGISLAÇÃO', color: 'bg-orange-500', hoverColor: 'hover:bg-orange-600', icon: 'fa-balance-scale', titleText: 'O Que Diz a Lei?', desc: 'Baseada na Lei 10.097/2000 (Art. 429 CLT), empresas de médio e grande porte DEVEM contratar de 5% a 15% de aprendizes. O contrato tem limite máximo de 2 anos, garantindo formação teórica no SENAI e prática na indústria (para jovens de 14 a 24 anos, sem limite de idade para PcD).' },
-            { id: 'cbo', title: 'CBO', color: 'bg-pink-500', hoverColor: 'hover:bg-pink-600', icon: 'fa-list-ol', titleText: 'Classificação Brasileira de Ocupações', desc: 'Como saber qual é a cota da minha empresa? A base de cálculo é feita pelas funções da empresa registradas na CBO que demandam formação profissional. Cargos de gerência, nível superior e contratos temporários ficam de fora da conta.' },
-            { id: 'manual', title: 'MANUAL', color: 'bg-purple-400', hoverColor: 'hover:bg-purple-500', icon: 'fa-book-open', titleText: 'O Guia Oficial do MTE', desc: 'O Manual da Aprendizagem do Ministério do Trabalho e Emprego consolida as regras de auditoria e rotina. Ele reforça proteções vitais: o jovem menor de 18 anos não pode realizar trabalho noturno, insalubre ou perigoso na prática da empresa.' },
-            { id: 'portal', title: 'PORTAL / VÍDEO', color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-500', icon: 'fa-laptop-house', titleText: 'Conecte-se: Cadastro e Interesse', desc: 'A jornada começa online! Jovens devem acessar o Portal EaD SESI SENAI Goiás para realizar o cadastro de interesse nas vagas. Indústrias utilizam os canais oficiais (FIEG/SENAI) para abrir turmas customizadas e assistir aos tutoriais do programa.' }
+            { id: 'emprego', title: 'EMPREGO', color: 'bg-green-500', hoverColor: 'hover:bg-green-600', icon: 'fa-briefcase', titleText: 'O Primeiro Emprego Formal', desc: 'A aprendizagem NÃO é estágio. É um emprego com Carteira de Trabalho assinada! O jovem garante salário (baseado na hora/mínima), 13º salário, férias (coincidentes com o recesso escolar) e FGTS (alíquota especial de 2%).' },
+            { id: 'legislacao', title: 'LEGISLAÇÃO', color: 'bg-orange-500', hoverColor: 'hover:bg-orange-600', icon: 'fa-balance-scale', titleText: 'O Que Diz a Lei?', desc: 'Baseada na Lei 10.097/2000 (Art. 429 CLT), empresas de médio e grande porte DEVEM contratar de 5% a 15% de aprendizes. O contrato tem limite máximo de 2 anos, garantindo formação teórica no SENAI e prática na indústria.' },
+            { id: 'cbo', title: 'CBO', color: 'bg-pink-500', hoverColor: 'hover:bg-pink-600', icon: 'fa-list-ol', titleText: 'Classificação Brasileira de Ocupações', desc: 'Como saber a cota da minha empresa? A base de cálculo é feita pelas funções da empresa registradas na CBO que demandam formação profissional. Cargos de gerência, nível superior e contratos temporários não entram na conta.' },
+            { id: 'manual', title: 'MANUAL', color: 'bg-purple-400', hoverColor: 'hover:bg-purple-500', icon: 'fa-book-open', titleText: 'O Guia Oficial do MTE', desc: 'O Manual da Aprendizagem consolida as regras de auditoria. Ele reforça proteções vitais: o jovem menor de 18 anos não pode realizar trabalho noturno, insalubre ou perigoso na prática da empresa.' },
+            { id: 'portal', title: 'PORTAL', color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-500', icon: 'fa-laptop-house', titleText: 'Conecte-se e Cadastre-se', desc: 'A jornada começa online! Jovens devem acessar o Portal EaD SESI SENAI Goiás para realizar o cadastro de interesse nas vagas. Indústrias utilizam os canais oficiais (FIEG/SENAI) para abrir turmas customizadas.' }
         ];
 
+        const newCourses = [
+            {
+                id: 'ia',
+                title: 'Inteligência Artificial',
+                subtitle: 'Operador de Processos Digitais',
+                hours: '480h',
+                area: 'Tecnologia da Informação',
+                icon: 'fa-brain',
+                image: 'https://i.postimg.cc/prKX9QGL/Gemini-Generated-Image-e78kmxe78kmxe78k.png',
+                desc: 'Formação inovadora para atuar na Indústria 4.0. O jovem aprende a analisar dados, desenvolver algoritmos, operar ferramentas de Business Intelligence (BI) e aplicar modelos de Processamento de Linguagem Natural (PLN) para otimizar rotinas empresariais.',
+                rhPitch: 'Injete inovação diretamente na sua operação. Este jovem talento é capacitado para automatizar tarefas repetitivas, extrair inteligência de dados e apoiar a tomada de decisão da sua liderança técnica com visão analítica.'
+            },
+            {
+                id: 'robotica',
+                title: 'Processos Robotizados',
+                subtitle: 'Auxiliar de Processos',
+                hours: '520h',
+                area: 'Metalmecânica / Automação',
+                icon: 'fa-robot',
+                image: 'https://i.postimg.cc/43RPVXxh/Gemini-Generated-Image-uu647kuu647kuu64.png',
+                desc: 'Prepara o jovem para operar sistemas automatizados e células robotizadas industriais. Inclui programação básica CNC, operação de robôs de conformação e montagem, além da execução segura de solda robotizada (MIG/MAG/TIG).',
+                rhPitch: 'A solução ideal para indústrias em processo de modernização fabril. O aprendiz chega preparado para interagir com interfaces homem-máquina (IHM) e atuar na linha de frente da robótica industrial com total segurança.'
+            },
+            {
+                id: 'automotiva',
+                title: 'Manufatura Automotiva',
+                subtitle: 'Operador de Processos',
+                hours: '800h',
+                area: 'Mecânica Automotiva',
+                icon: 'fa-car-side',
+                image: 'https://i.postimg.cc/xdbCDSvC/Gemini-Generated-Image-esy562esy562esy5.png',
+                desc: 'Capacitação robusta para atuar na linha de produção de veículos. Envolve armação de carrocerias (Bodyshop), processos de pintura, montagem de sistemas mecânicos e elétricos veiculares, e forte base em controle de qualidade e Metrologia.',
+                rhPitch: 'Reduza o tempo de adaptação de novos operadores na sua linha de montagem. O jovem adquire uma visão sistêmica da manufatura enxuta (Lean), melhoria contínua e controle rigoroso de qualidade automotiva.'
+            },
+            {
+                id: 'logistica',
+                title: 'Almoxarife de Obras',
+                subtitle: 'Gestão e Logística',
+                hours: '480h',
+                area: 'Infraestrutura / Logística',
+                icon: 'fa-boxes',
+                image: 'https://i.postimg.cc/d1rj0pYn/Gemini-Generated-Image-cosqnqcosqnqcosq.png',
+                desc: 'Foco na eficiência logística de canteiros de obras e indústrias. Ensina recebimento, armazenagem, controle de estoque (curva ABC, FIFO), e expedição de materiais, utilizando ferramentas informatizadas para evitar rupturas de estoque.',
+                rhPitch: 'Combata o desperdício financeiro na sua cadeia de suprimentos. Este perfil garante acuracidade no inventário, organização do arranjo físico e eficiência na entrega de insumos para a linha de produção ou obra.'
+            }
+        ];
 
-        // --- COMPONENTES ---
+        // --- COMPONENTE MODAL DE CASES ---
         const Modal = ({ isOpen, onClose, data }) => {
-            if (!isOpen) return null;
+            if (!isOpen || !data) return null;
             return (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" onClick={onClose}>
                     <div className="bg-white rounded-3xl p-10 max-w-2xl w-full fade-in-up shadow-2xl relative" onClick={e => e.stopPropagation()}>
@@ -141,24 +216,89 @@
                         </div>
                         <p className="text-2xl text-slate-600 leading-relaxed">{data.desc}</p>
                         <button onClick={onClose} className="mt-10 w-full py-5 bg-blue-600 text-white rounded-2xl text-xl font-bold active:bg-blue-700 active:scale-95 transition-all">
-                            Fechar e Voltar
+                            Fechar Janela
                         </button>
                     </div>
                 </div>
             );
         };
 
+        // --- COMPONENTE MODAL DE CURSOS ---
+        const CourseModal = ({ isOpen, onClose, course }) => {
+            if (!isOpen || !course) return null;
+            return (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" onClick={onClose}>
+                    <div className="bg-white rounded-[2rem] w-full max-w-3xl fade-in-up shadow-2xl relative overflow-hidden flex flex-col max-h-[90vh]" onClick={e => e.stopPropagation()}>
+                        
+                        {/* Imagem de Cabeçalho */}
+                        <div className="h-64 w-full relative">
+                            <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                            
+                            <button onClick={onClose} className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/40 active:scale-95 transition-all text-xl z-10">
+                                <i className="fas fa-times"></i>
+                            </button>
+
+                            <div className="absolute bottom-6 left-8 right-8 text-white">
+                                <div className="flex items-center space-x-3 mb-2">
+                                    <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{course.area}</span>
+                                    <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
+                                        <i className="fas fa-clock mr-2"></i> {course.hours} (Teoria)
+                                    </span>
+                                </div>
+                                <h3 className="font-black text-4xl leading-tight">{course.title}</h3>
+                                <p className="text-blue-200 text-lg font-medium">{course.subtitle}</p>
+                            </div>
+                        </div>
+
+                        {/* Conteúdo Didático */}
+                        <div className="p-8 overflow-y-auto">
+                            <div className="mb-8">
+                                <h4 className="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                                    <i className="fas fa-book-reader text-blue-600 mr-3"></i> O que o aprendiz dominará?
+                                </h4>
+                                <p className="text-lg text-slate-600 leading-relaxed">
+                                    {course.desc}
+                                </p>
+                            </div>
+
+                            {/* Apelo para o RH */}
+                            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 -mt-4 -mr-4 opacity-5">
+                                    <i className="fas fa-bullseye text-[120px] text-blue-900"></i>
+                                </div>
+                                <h4 className="text-lg font-black text-blue-800 mb-2 relative z-10 flex items-center">
+                                    <i className="fas fa-lightbulb text-yellow-500 mr-2"></i> Visão Estratégica para o RH
+                                </h4>
+                                <p className="text-blue-900 font-medium leading-relaxed relative z-10">
+                                    {course.rhPitch}
+                                </p>
+                            </div>
+
+                            <button onClick={onClose} className="mt-8 w-full py-4 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl text-lg font-bold active:scale-95 transition-all">
+                                Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // --- COMPONENTE PRINCIPAL (APP) ---
         function App() {
             const [activeYear, setActiveYear] = useState(timelineEvents[0].year);
             const [revealedNumbers, setRevealedNumbers] = useState({});
             const [quotaBase, setQuotaBase] = useState(150);
             const [selectedTrail, setSelectedTrail] = useState('manufatura');
-            const [activeCaseModal, setActiveCaseModal] = useState(null);
             
-            // Estado para o bloco de Legislação (Padrão: LEGISLAÇÃO)
+            // Estados para os Modais
+            const [activeCaseModal, setActiveCaseModal] = useState(null);
+            const [activeCourseModal, setActiveCourseModal] = useState(null);
+            
             const [activeFaq, setActiveFaq] = useState('legislacao');
 
             const toggleNumber = (id) => setRevealedNumbers(prev => ({ ...prev, [id]: !prev[id] }));
+            
             const adjustQuota = (amount) => {
                 setQuotaBase(prev => {
                     const newValue = prev + amount;
@@ -168,16 +308,19 @@
 
             const minQuota = Math.ceil(quotaBase * 0.05);
             const maxQuota = Math.ceil(quotaBase * 0.15);
+            
             const activeEvent = timelineEvents.find(e => e.year === activeYear);
             const activeFaqData = faqLegislao.find(f => f.id === activeFaq);
 
             return (
-                <div className="min-h-screen pb-20">
+                <div className="min-h-screen pb-20 bg-slate-50">
                     
-                    {/* CABEÇALHO */}
+                    {/* CABEÇALHO COM AS DUAS LOGOMARCAS */}
                     <header className="bg-white border-b border-slate-200 pt-10 pb-16 px-8 lg:px-16 relative overflow-hidden">
                         <div className="max-w-7xl mx-auto relative z-10">
-                            <div className="flex flex-row justify-between items-center w-full mb-12 z-20">
+                            
+                            {/* Bloco de Logomarcas */}
+                            <div className="flex flex-col md:flex-row justify-between items-center w-full mb-12 z-20 gap-8 md:gap-0">
                                 <img src="https://i.postimg.cc/Xqm6wy5p/marca-aprendizagem-PRO-02.png" alt="Logomarca Aprendizagem PRO" className="h-20 md:h-28 object-contain" />
                                 <img src="https://i.postimg.cc/gkZfCjRv/marca-4º-workshop-01.png" alt="Logomarca 4º Workshop" className="h-20 md:h-28 object-contain" />
                             </div>
@@ -199,38 +342,60 @@
 
                     <main className="max-w-7xl mx-auto px-8 lg:px-16 py-16 space-y-32">
                         
-                        {/* 1. TIMELINE INTERATIVA TOUCH */}
+                        {/* 1. TIMELINE INTERATIVA COM IMAGENS */}
                         <section>
-                            <h2 className="text-4xl font-bold mb-8 flex items-center">
-                                <i className="fas fa-history text-blue-600 mr-4"></i> Toque para explorar a História
-                            </h2>
-                            <div className="flex space-x-4 overflow-x-auto hide-scroll pb-6 mb-4 px-2">
+                            <div className="mb-10 text-center md:text-left">
+                                <h2 className="text-4xl font-bold mb-4 flex items-center justify-center md:justify-start text-slate-800">
+                                    <i className="fas fa-history text-blue-600 mr-4"></i> A Construção de um Legado
+                                </h2>
+                                <p className="text-2xl text-slate-600 max-w-4xl">
+                                    Selecione um ano abaixo para entender como a Aprendizagem evoluiu de uma necessidade técnica para a maior política de inclusão do Brasil.
+                                </p>
+                            </div>
+                            
+                            <div className="flex space-x-4 overflow-x-auto hide-scroll pb-6 mb-8 px-2 justify-start md:justify-center">
                                 {timelineEvents.map((event) => (
                                     <button 
                                         key={event.year}
                                         onClick={() => setActiveYear(event.year)}
-                                        className={`flex-shrink-0 px-8 py-5 rounded-2xl text-2xl font-black transition-all active:scale-95 ${
+                                        className={`flex-shrink-0 px-10 py-5 rounded-full text-2xl font-black transition-all active:scale-95 border-4 ${
                                             activeYear === event.year 
-                                            ? 'bg-blue-600 text-white shadow-xl shadow-blue-200' 
-                                            : 'bg-white text-slate-400 border-2 border-slate-200'
+                                            ? 'bg-blue-600 text-white border-blue-200 shadow-xl scale-105' 
+                                            : 'bg-white text-slate-400 border-slate-200 hover:border-blue-300'
                                         }`}
                                     >
                                         {event.year}
                                     </button>
                                 ))}
                             </div>
-                            <div key={activeYear} className="fade-in-up bg-white p-10 rounded-3xl border border-slate-200 shadow-lg flex items-start space-x-8">
-                                <div className="w-24 h-24 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-4xl flex-shrink-0">
-                                    <i className={`fas ${activeEvent.icon}`}></i>
+
+                            <div key={activeYear} className="fade-in-up bg-white p-10 lg:p-14 rounded-[3rem] border border-slate-200 shadow-xl flex flex-col lg:flex-row items-center gap-12">
+                                <div className="flex-1 w-full">
+                                    <div className="w-24 h-24 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-4xl mb-8 shadow-inner border border-blue-100">
+                                        <i className={`fas ${activeEvent.icon}`}></i>
+                                    </div>
+                                    <h3 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                                        {activeEvent.title}
+                                    </h3>
+                                    <p className="text-2xl text-slate-600 leading-relaxed font-medium">
+                                        {activeEvent.desc}
+                                    </p>
                                 </div>
-                                <div>
-                                    <h3 className="text-4xl font-black text-slate-900 mb-4">{activeEvent.title}</h3>
-                                    <p className="text-2xl text-slate-600 leading-relaxed">{activeEvent.desc}</p>
+                                <div className="flex-1 w-full relative">
+                                    <div className="absolute inset-0 bg-blue-600 rounded-[3rem] transform rotate-3 scale-105 opacity-10 z-0"></div>
+                                    <img 
+                                        src={activeEvent.image} 
+                                        alt={`Representação do ano ${activeEvent.year}`} 
+                                        className="w-full h-[350px] lg:h-[450px] object-cover rounded-[3rem] shadow-2xl relative z-10 border-8 border-white"
+                                    />
+                                    <div className="absolute bottom-6 right-6 z-20 bg-white text-blue-600 font-black text-3xl px-6 py-3 rounded-full shadow-lg border-2 border-blue-100">
+                                        {activeEvent.year}
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
-                        {/* 2. NÚMEROS OCULTOS (TAP TO REVEAL) */}
+                        {/* 2. GRANDES NÚMEROS (TOCAR PARA REVELAR) */}
                         <section className="bg-slate-900 text-white rounded-[3rem] p-12 lg:p-16 relative overflow-hidden">
                             <h2 className="text-4xl font-bold mb-12 flex items-center z-10 relative">
                                 <i className="fas fa-hand-sparkles text-blue-400 mr-4"></i> Descubra os Grandes Números
@@ -262,7 +427,7 @@
                             </div>
                         </section>
 
-                        {/* 3. SIMULADOR DE COTAS */}
+                        {/* 3. SIMULADOR DE COTAS INTERATIVO */}
                         <section className="bg-white p-12 rounded-[3rem] border border-slate-200 shadow-xl">
                             <div className="mb-10 text-center">
                                 <h2 className="text-4xl font-bold mb-4 text-slate-800">
@@ -305,16 +470,14 @@
                             </div>
                         </section>
 
-                        {/* NOVO BLOCO 4: GUIA DE LEGISLAÇÃO E DÚVIDAS */}
+                        {/* 4. GUIA DE LEGISLAÇÃO E DÚVIDAS */}
                         <section className="bg-slate-100 p-12 rounded-[3rem] border border-slate-200">
                             <h2 className="text-4xl font-bold mb-4 text-center">
                                 <i className="fas fa-question-circle text-blue-600 mr-4"></i> Entendendo as Regras do Jogo
                             </h2>
                             <p className="text-2xl text-slate-600 mb-10 text-center max-w-4xl mx-auto">
-                                Toque nos botões abaixo para tirar dúvidas rápidas sobre a legislação, contrato, CBO e muito mais, baseados nos portais do MTE e SENAI.
+                                Toque nos botões abaixo para tirar dúvidas rápidas sobre a legislação, contrato, CBO e muito mais.
                             </p>
-
-                            {/* Botões Coloridos Estilo Pílula */}
                             <div className="flex flex-wrap justify-center gap-4 mb-10">
                                 {faqLegislao.map((item) => (
                                     <button 
@@ -326,19 +489,13 @@
                                     </button>
                                 ))}
                             </div>
-
-                            {/* Card de Resposta (Muda conforme o clique) */}
                             <div key={activeFaq} className="fade-in-up bg-white p-10 rounded-3xl shadow-lg border border-slate-200 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
                                 <div className={`w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-4xl text-white shadow-inner ${activeFaqData.color}`}>
                                     <i className={`fas ${activeFaqData.icon}`}></i>
                                 </div>
                                 <div>
                                     <h3 className="text-3xl font-black text-slate-900 mb-4">{activeFaqData.titleText}</h3>
-                                    <p className="text-2xl text-slate-600 leading-relaxed">
-                                        {activeFaqData.desc}
-                                    </p>
-                                    
-                                    {/* Link Direcional Fictício (Visual UI) */}
+                                    <p className="text-2xl text-slate-600 leading-relaxed">{activeFaqData.desc}</p>
                                     {(activeFaq === 'portal' || activeFaq === 'manual') && (
                                         <div className="mt-6 inline-flex items-center text-blue-600 font-bold text-xl bg-blue-50 px-4 py-2 rounded-lg">
                                             <i className="fas fa-external-link-alt mr-3"></i> Acesse os canais oficiais do SESI/SENAI e MTE
@@ -348,7 +505,7 @@
                             </div>
                         </section>
 
-                        {/* 5. TRILHAS DE CARREIRA COM EVOLUÇÃO SALARIAL */}
+                        {/* 5. TRILHAS COM EVOLUÇÃO SALARIAL E FONTES DE GOIÁS */}
                         <section className="text-center bg-slate-900 p-12 lg:p-16 rounded-[3rem] text-white">
                             <div className="flex flex-col items-center justify-center mb-4">
                                 <div className="bg-green-900/50 border border-green-500/50 text-green-400 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-4 flex items-center">
@@ -361,6 +518,7 @@
                             <p className="text-2xl text-slate-400 mb-10 max-w-4xl mx-auto">
                                 Veja como a aprendizagem impulsiona não apenas a carreira, mas o poder aquisitivo do jovem ao longo do tempo.
                             </p>
+                            
                             <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
                                 {Object.keys(careerTrails).map(key => (
                                     <button
@@ -374,6 +532,7 @@
                                     </button>
                                 ))}
                             </div>
+                            
                             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
                                 <div className="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-slate-700 -translate-y-1/2 z-0"></div>
                                 {careerTrails[selectedTrail].steps.map((step, idx) => (
@@ -396,7 +555,7 @@
                                 ))}
                             </div>
 
-                            {/* PAINEL DE FONTES APRIMORADO E EM DESTAQUE */}
+                            {/* PAINEL DE FONTES GOIÁS */}
                             <div className="mt-16 bg-slate-800 p-8 rounded-3xl border border-slate-600 text-left flex flex-col md:flex-row items-center md:items-start gap-8 max-w-5xl mx-auto shadow-2xl">
                                 <div className="w-20 h-20 bg-slate-700 rounded-full flex items-center justify-center text-4xl text-slate-400 flex-shrink-0">
                                     <i className="fas fa-database"></i>
@@ -408,19 +567,19 @@
                                     <ul className="text-lg text-slate-300 space-y-3 mb-6">
                                         <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>CAGED / MTE:</strong> Registros oficiais de admissão em regime CLT no estado.</li>
                                         <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>Salario.com.br:</strong> Consolidação estatística das ocupações (CBO) focada especificamente no <strong>mercado goiano</strong>.</li>
-                                        <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>LinkedIn Insights:</strong> Projeção de remuneração regional para especialistas em TI e Manufatura Avançada nas indústrias de Goiás.</li>
+                                        <li><i className="fas fa-check text-green-400 mr-2"></i> <strong>LinkedIn Insights:</strong> Projeção de remuneração regional para especialistas nas indústrias de Goiás.</li>
                                     </ul>
                                     <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
                                         <p className="text-sm text-slate-400 leading-relaxed">
                                             <i className="fas fa-info-circle mr-2"></i>
-                                            <em><strong>Nota sobre o Aprendiz:</strong> O valor inicial (aprox. R$ 850) é uma referência proporcional a uma carga horária de 4 a 6 horas diárias, vinculada ao Salário Mínimo vigente ou piso da categoria regional em Goiás. Os percentuais ilustram o salto de poder aquisitivo real ao longo da trilha dentro da economia local.</em>
+                                            <em><strong>Nota sobre o Aprendiz:</strong> O valor inicial (aprox. R$ 850) é proporcional a uma jornada de 4 a 6 horas diárias, vinculada ao Salário Mínimo ou piso da categoria regional em Goiás. Os percentuais ilustram o salto de poder aquisitivo real dentro da economia local.</em>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
-                        {/* 6. CASES DE SUCESSO FOCADOS EM GOIÁS (MODAL) */}
+                        {/* 6. CASES DE SUCESSO FOCADOS EM GOIÁS */}
                         <section className="bg-blue-50 p-12 rounded-[3rem] border border-blue-100">
                             <h2 className="text-4xl font-bold mb-10 text-center text-slate-800">
                                 <i className="fas fa-map-marked-alt text-blue-600 mr-4"></i> A Força da Indústria Goiana
@@ -455,13 +614,134 @@
                             </div>
                         </section>
 
+                        {/* 7. PORTFÓLIO DE CURSOS (INDÚSTRIA 4.0) */}
+                        <section className="bg-white p-12 lg:p-16 rounded-[3rem] border border-slate-200 shadow-xl relative overflow-hidden">
+                            
+                            {/* Header Estratégico para o RH */}
+                            <div className="text-center max-w-5xl mx-auto mb-14 relative z-10">
+                                <div className="inline-flex items-center justify-center bg-blue-50 border border-blue-100 text-blue-700 px-6 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-widest">
+                                    <i className="fas fa-rocket mr-2"></i> Atualização de Portfólio 2025/2026
+                                </div>
+                                <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6">
+                                    Novos Horizontes de Formação
+                                </h2>
+                                <p className="text-2xl text-slate-600 leading-relaxed">
+                                    Acelere a inovação do seu quadro de colaboradores. Conheça as novas trilhas de Aprendizagem Industrial desenvolvidas sob medida pelo SENAI Goiás para atender às demandas de alta tecnologia da <strong className="text-blue-600">Indústria 4.0</strong>.
+                                </p>
+                            </div>
+
+                            {/* Grid Interativo de Cursos */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                                {newCourses.map((course) => (
+                                    <div 
+                                        key={course.id}
+                                        onClick={() => setActiveCourseModal(course)}
+                                        className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:border-blue-400 hover:shadow-2xl transition-all cursor-pointer flex flex-col active:scale-95"
+                                    >
+                                        <div className="h-48 w-full relative overflow-hidden">
+                                            <img 
+                                                src={course.image} 
+                                                alt={course.title} 
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                            
+                                            <div className="absolute bottom-4 right-4 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl shadow-lg group-hover:bg-blue-500">
+                                                <i className={`fas ${course.icon}`}></i>
+                                            </div>
+                                        </div>
+
+                                        <div className="p-6 flex flex-col flex-grow">
+                                            <span className="text-blue-600 text-xs font-bold uppercase tracking-wider mb-2 block">{course.area}</span>
+                                            <h3 className="font-black text-2xl text-slate-800 leading-tight mb-1">{course.title}</h3>
+                                            <p className="text-sm font-medium text-slate-500 mb-4">{course.subtitle}</p>
+                                            
+                                            <div className="mt-auto flex items-center text-sm font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                                                <i className="fas fa-hand-pointer mr-2"></i> Toque para conhecer
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="absolute -bottom-20 -left-20 opacity-5 pointer-events-none">
+                                <i className="fas fa-microchip text-[400px] text-blue-900"></i>
+                            </div>
+                        </section>
+
+                        {/* 8. CALL TO ACTION (SAIBA MAIS / QR CODE) */}
+                        <section className="bg-blue-700 rounded-[3rem] p-12 lg:p-16 relative overflow-hidden shadow-2xl mt-12 border-4 border-blue-500">
+                            {/* Fundo decorativo */}
+                            <div className="absolute top-0 right-0 -mt-10 -mr-10 opacity-10 pointer-events-none">
+                                <i className="fas fa-qrcode text-[300px] text-white"></i>
+                            </div>
+
+                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+                                {/* Texto CTA */}
+                                <div className="text-center lg:text-left flex-1">
+                                    <span className="bg-blue-900 text-blue-200 text-sm font-bold px-4 py-2 rounded-full uppercase tracking-widest mb-6 inline-block">
+                                        Dê o Próximo Passo
+                                    </span>
+                                    <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                                        Pronto para transformar sua força de trabalho?
+                                    </h2>
+                                    <p className="text-2xl text-blue-100 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                                        Descubra como o SENAI Goiás pode apoiar sua indústria na implementação da Aprendizagem 4.0. Escaneie o QR Code ao lado e conecte-se aos nossos especialistas.
+                                    </p>
+                                    <div className="flex items-center justify-center lg:justify-start space-x-4">
+                                        <div className="flex -space-x-4">
+                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-100 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-industry"></i></div>
+                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-200 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-robot"></i></div>
+                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-300 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-laptop-code"></i></div>
+                                        </div>
+                                        <span className="text-white font-bold text-lg">Junte-se à Indústria do Futuro</span>
+                                    </div>
+                                </div>
+
+                                {/* QR Code Card */}
+                                <div className="flex-shrink-0 bg-white p-6 rounded-[2rem] shadow-2xl transform transition-transform hover:scale-105 duration-300">
+                                    <div className="border-4 border-dashed border-blue-100 p-4 rounded-2xl flex justify-center items-center bg-slate-50">
+                                        <img 
+                                            src="https://i.postimg.cc/zGY5bRKb/YEAnl-S.jpg" 
+                                            alt="QR Code SENAI" 
+                                            className="w-64 h-64 lg:w-72 lg:h-72 object-contain rounded-xl"
+                                        />
+                                    </div>
+                                    <div className="mt-6 flex flex-col items-center justify-center">
+                                        <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-2 animate-bounce">
+                                            <i className="fas fa-camera"></i>
+                                        </div>
+                                        <p className="text-center text-slate-700 font-black uppercase tracking-widest text-lg">
+                                            Aponte a Câmera
+                                        </p>
+                                        <p className="text-sm text-slate-500 font-medium mb-6">Saiba Mais</p>
+                                        
+                                        {/* Logo Quem Forma Transforma */}
+                                        <div className="w-full border-t border-slate-100 pt-6 flex justify-center">
+                                            <img 
+                                                src="https://i.postimg.cc/5yZDHWc8/marca-QUEM-FORMA-TRANSFORMA-01.png" 
+                                                alt="Quem Forma Transforma" 
+                                                className="h-10 lg:h-14 object-contain"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                     </main>
 
-                    {/* Modal Render para os Cases */}
+                    {/* Componentes Modais */}
                     <Modal 
                         isOpen={!!activeCaseModal} 
                         onClose={() => setActiveCaseModal(null)} 
                         data={activeCaseModal} 
+                    />
+
+                    <CourseModal 
+                        isOpen={!!activeCourseModal} 
+                        onClose={() => setActiveCourseModal(null)} 
+                        course={activeCourseModal} 
                     />
                 </div>
             );
