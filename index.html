@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Infográfico Interativo: Aprendizagem Industrial</title>
+    <title>Infográfico Interativo: Aprendizagem Profissional</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -71,7 +71,7 @@
                 title: 'O Despertar da Indústria', 
                 desc: 'Mais do que um decreto, 1942 marca o momento em que o Brasil decidiu ser gigante. A criação do SENAI e da Aprendizagem nasceu da convicção de que nenhuma nação se desenvolve sem investir nas mãos e mentes de sua juventude.', 
                 icon: 'fa-industry',
-                image: 'https://i.postimg.cc/0jQcjrXM/Senai-primeira-unidade.jpg'
+                image: 'https://i.postimg.cc/z3vFjfsX/Gemini-Generated-Image-y1juuuy1juuuy1ju.png'
             },
             { 
                 year: '2000', 
@@ -100,14 +100,53 @@
                 desc: 'A recriação do Fórum Nacional da Aprendizagem devolve a voz aos protagonistas: indústria, governo e sociedade civil sentados à mesma mesa. Um pacto renovado para alinhar a formação dos jovens às exigências da Indústria 4.0.', 
                 icon: 'fa-comments',
                 image: 'https://i.postimg.cc/FzNYmnpD/Gemini-Generated-Image-a3upfga3upfga3up.png'
+            },
+            { 
+                year: '2026', 
+                title: 'Além do Chão de Fábrica', 
+                desc: 'A aprendizagem rompe as fronteiras do trabalho estritamente manual e consolida-se como o motor da Indústria 4.0. Com as novas rotas em Inteligência Artificial, Processos Robotizados, Manufatura Automotiva e Almoxarife de Obras, o jovem nativo digital é inserido no coração da estratégia empresarial, atuando como um verdadeiro catalisador de inovação tecnológica.', 
+                icon: 'fa-rocket',
+                image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80'
             }
         ];
 
         const impactNumbers = [
-            { id: 1, value: '+92 Milhões', label: 'Trabalhadores formados pela rede SENAI desde sua fundação.', icon: 'fa-users' },
-            { id: 2, value: '88,5%', label: 'Empregabilidade de ex-alunos de Aprendizagem Industrial em até 1 ano.', icon: 'fa-briefcase' },
-            { id: 3, value: '633.720', label: 'Aprendizes com vínculo formal ativo no Brasil (Ref: Fev/2025).', icon: 'fa-id-card' },
-            { id: 4, value: '90,5%', label: 'Das indústrias preferem contratar egressos formados pelo SENAI.', icon: 'fa-star' }
+            { 
+                id: 1, 
+                title: 'Jovens no Mercado', 
+                desc: 'Aprendizes com vínculo formal e carteira assinada atualmente.',
+                brValue: '633.720', 
+                goValue: '25.840', 
+                icon: 'fa-id-badge', 
+                source: 'Fonte: Ministério do Trabalho e Emprego - MTE (Fev/2025)' 
+            },
+            { 
+                id: 2, 
+                title: 'Potencial de Contratação', 
+                desc: 'Vagas mapeadas pela fiscalização aguardando contratação.',
+                brValue: '+1 Milhão', 
+                goValue: '29.162', 
+                icon: 'fa-map-marked-alt', 
+                source: 'Fonte: Levantamento de Potencial MTE (Nov/2024)' 
+            },
+            { 
+                id: 3, 
+                title: 'Empregabilidade SENAI', 
+                desc: 'Ex-alunos trabalhando formalmente em até 1 ano após o curso.',
+                brValue: '88,5%', 
+                goValue: '89,4%', 
+                icon: 'fa-chart-line', 
+                source: 'Fonte: Pesquisa de Acompanhamento de Egressos SENAI (2022-2024)' 
+            },
+            { 
+                id: 4, 
+                title: 'Trabalhadores Formados', 
+                desc: 'Impacto histórico na qualificação profissional da indústria.',
+                brValue: '+92 Milhões', 
+                goValue: '+2,5 Milhões', 
+                icon: 'fa-users', 
+                source: 'Fonte: Base Histórica Sistema Indústria (CNI/SENAI)' 
+            }
         ];
 
         const goiasCases = [
@@ -148,7 +187,7 @@
             { id: 'manual', title: 'MANUAL', color: 'bg-purple-400', hoverColor: 'hover:bg-purple-500', icon: 'fa-book-open', titleText: 'O Guia Oficial do MTE', desc: 'O Manual da Aprendizagem consolida as regras de auditoria. Ele reforça proteções vitais: o jovem menor de 18 anos não pode realizar trabalho noturno, insalubre ou perigoso na prática da empresa.' },
             { id: 'portal', title: 'PORTAL', color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-500', icon: 'fa-laptop-house', titleText: 'Conecte-se e Cadastre-se', desc: 'A jornada começa online! Jovens devem acessar o Portal EaD SESI SENAI Goiás para realizar o cadastro de interesse nas vagas. Indústrias utilizam os canais oficiais (FIEG/SENAI) para abrir turmas customizadas.' }
         ];
-
+        // NOVOS CURSOS (Extraídos dos Planos de Curso)
         const newCourses = [
             {
                 id: 'ia',
@@ -194,6 +233,20 @@
                 desc: 'Foco na eficiência logística de canteiros de obras e indústrias. Ensina recebimento, armazenagem, controle de estoque (curva ABC, FIFO), e expedição de materiais, utilizando ferramentas informatizadas para evitar rupturas de estoque.',
                 rhPitch: 'Combata o desperdício financeiro na sua cadeia de suprimentos. Este perfil garante acuracidade no inventário, organização do arranjo físico e eficiência na entrega de insumos para a linha de produção ou obra.'
             }
+        ];
+
+        // DADOS DO GUIA DE COTAS (NOVO)
+        const quotaCriteria = [
+            { id: 'quem', title: '1. Quem é Obrigado?', icon: 'fa-building', desc: 'Estabelecimentos de médio e grande porte (e algumas pequenas empresas) que possuam empregados em funções que exijam formação profissional. Em regra, a obrigação recai sobre empresas com empregados registrados, exceto em hipóteses legais específicas.' },
+            { id: 'percentual', title: '2. Percentual da Cota', icon: 'fa-percentage', desc: 'A empresa deve contratar entre o Mínimo de 5% e o Máximo de 15%. Este cálculo é feito exclusivamente sobre o total de trabalhadores cujas funções demandem formação profissional.' },
+            { id: 'base', title: '3. Base de Cálculo', icon: 'fa-users-cog', desc: 'Entram no cálculo os ocupantes de funções que exigem qualificação. NÃO entram: cargos de direção, gerência e confiança; funções de nível técnico/superior definidas em lei; trabalhadores temporários; aprendizes já contratados e funções incompatíveis (com justificativa técnica).' },
+            { id: 'quem-pode', title: '4. Quem Pode ser Contratado?', icon: 'fa-user-graduate', desc: 'Jovens de 14 a 24 anos incompletos. Para Pessoa com Deficiência (PcD), não há limite máximo de idade. É obrigatório estar matriculado e frequentando a escola (se não concluiu o ensino médio) e no programa de aprendizagem.' },
+            { id: 'contrato', title: '5. Tipo de Contrato', icon: 'fa-file-signature', desc: 'Contrato especial de aprendizagem, com prazo determinado de até 2 anos (salvo exceções). Exige registro em carteira e garante todos os direitos trabalhistas.' },
+            { id: 'jornada', title: '6. Jornada de Trabalho', icon: 'fa-clock', desc: 'Até 6 horas diárias para quem não concluiu o ensino fundamental. Até 8 horas diárias para quem concluiu, considerando a soma das atividades teóricas (SENAI) e práticas (Empresa).' },
+            { id: 'fiscalizacao', title: '7. Fiscalização', icon: 'fa-gavel', desc: 'A Inspeção do Trabalho (MTE) é rigorosa. O descumprimento gera autos de infração, multas administrativas, TAC com o Ministério Público do Trabalho e ações judiciais.' },
+            { id: 'exemplo', title: '8. Exemplo Prático', icon: 'fa-chalkboard-teacher', desc: 'Se uma empresa possui 100 empregados ocupando funções que entram na base de cálculo (após as exclusões da CBO), sua cota será: Mínima de 5 aprendizes e Máxima de 15 aprendizes.' },
+            { id: 'critico', title: '9. Ponto Crítico', icon: 'fa-exclamation-triangle', desc: 'O maior erro das empresas é calcular a cota sobre o total geral de empregados da planta, quando o correto é apurar apenas as funções enquadráveis para aprendizagem (CBO).' },
+            { id: 'estrategia', title: '10. Recomendação Estratégica', icon: 'fa-chess-knight', desc: 'Faça um diagnóstico cirúrgico do CBO, cruzando com o quadro de pessoal e as exclusões legais. Isso permite calcular a cota corretamente, reduzir passivos e otimizar custos.' }
         ];
 
         // --- COMPONENTE MODAL DE CASES ---
@@ -291,11 +344,14 @@
             const [quotaBase, setQuotaBase] = useState(150);
             const [selectedTrail, setSelectedTrail] = useState('manufatura');
             
-            // Estados para os Modais
+            // Estados para os Modais e Dropdowns
             const [activeCaseModal, setActiveCaseModal] = useState(null);
             const [activeCourseModal, setActiveCourseModal] = useState(null);
+            const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+            const [isQuotaDropdownOpen, setIsQuotaDropdownOpen] = useState(false);
             
             const [activeFaq, setActiveFaq] = useState('legislacao');
+            const [activeQuotaRule, setActiveQuotaRule] = useState(quotaCriteria[0].id);
 
             const toggleNumber = (id) => setRevealedNumbers(prev => ({ ...prev, [id]: !prev[id] }));
             
@@ -311,6 +367,7 @@
             
             const activeEvent = timelineEvents.find(e => e.year === activeYear);
             const activeFaqData = faqLegislao.find(f => f.id === activeFaq);
+            const activeRuleData = quotaCriteria.find(r => r.id === activeQuotaRule);
 
             return (
                 <div className="min-h-screen pb-20 bg-slate-50">
@@ -331,7 +388,7 @@
                                     <span>Toque na tela para interagir</span>
                                 </div>
                                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900">
-                                    Aprendizagem <span className="text-blue-600">Industrial</span>
+                                    Aprendizagem <span className="text-blue-600">Profissional</span>
                                 </h1>
                                 <p className="text-2xl text-slate-600 max-w-4xl leading-relaxed">
                                     O motor do projeto de industrialização do Brasil. Uma ponte sólida entre a juventude, a educação e o futuro do mercado de trabalho.
@@ -397,29 +454,59 @@
 
                         {/* 2. GRANDES NÚMEROS (TOCAR PARA REVELAR) */}
                         <section className="bg-slate-900 text-white rounded-[3rem] p-12 lg:p-16 relative overflow-hidden">
-                            <h2 className="text-4xl font-bold mb-12 flex items-center z-10 relative">
-                                <i className="fas fa-hand-sparkles text-blue-400 mr-4"></i> Descubra os Grandes Números
-                            </h2>
+                            
+                            {/* Cabeçalho da Seção */}
+                            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 z-10 relative gap-6">
+                                <h2 className="text-4xl font-bold flex items-center">
+                                    <i className="fas fa-hand-sparkles text-blue-400 mr-4"></i> O Cenário da Aprendizagem
+                                </h2>
+                                <p className="text-xl text-slate-400 max-w-lg lg:text-right">
+                                    Toque nos cartões abaixo para comparar o impacto real e validado no <strong className="text-white">Brasil</strong> e no estado de <strong className="text-green-400">Goiás</strong>.
+                                </p>
+                            </div>
+
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 z-10 relative">
                                 {impactNumbers.map((stat) => (
                                     <div 
                                         key={stat.id} 
                                         onClick={() => toggleNumber(stat.id)}
-                                        className={`cursor-pointer rounded-3xl p-8 transition-all active:scale-95 min-h-[200px] flex flex-col justify-center border-2 ${
+                                        className={`cursor-pointer rounded-3xl p-8 transition-all active:scale-95 min-h-[260px] flex flex-col justify-center border-2 ${
                                             revealedNumbers[stat.id] 
-                                            ? 'bg-blue-600 border-blue-500' 
+                                            ? 'bg-blue-700 border-blue-500 shadow-2xl' 
                                             : 'bg-slate-800 border-slate-700 hover:bg-slate-700'
                                         }`}
                                     >
                                         {!revealedNumbers[stat.id] ? (
                                             <div className="text-center">
                                                 <i className={`fas ${stat.icon} text-6xl text-slate-500 mb-4`}></i>
-                                                <p className="text-xl text-slate-400 font-bold uppercase tracking-widest">Toque para revelar</p>
+                                                <h3 className="text-2xl font-bold text-slate-300 mb-2">{stat.title}</h3>
+                                                <p className="text-sm text-blue-400 font-bold uppercase tracking-widest mt-4">
+                                                    <i className="fas fa-search-plus mr-2"></i> Toque para revelar Brasil x Goiás
+                                                </p>
                                             </div>
                                         ) : (
-                                            <div className="fade-in-up text-center">
-                                                <div className="text-5xl lg:text-6xl font-black mb-4">{stat.value}</div>
-                                                <div className="text-blue-100 text-xl font-medium leading-snug">{stat.label}</div>
+                                            <div className="fade-in-up flex flex-col justify-between h-full">
+                                                <h3 className="text-2xl font-black text-white mb-2 text-center">{stat.title}</h3>
+                                                <p className="text-blue-200 text-sm text-center mb-6">{stat.desc}</p>
+                                                
+                                                {/* Comparativo BRASIL x GOIÁS */}
+                                                <div className="grid grid-cols-2 gap-4 mb-6">
+                                                    <div className="bg-slate-900/40 p-4 rounded-2xl text-center border border-white/10">
+                                                        <div className="text-xs text-blue-200 font-bold uppercase tracking-wider mb-1">Brasil</div>
+                                                        <div className="text-3xl lg:text-4xl font-black text-white">{stat.brValue}</div>
+                                                    </div>
+                                                    <div className="bg-green-500/20 p-4 rounded-2xl text-center border border-green-400/30">
+                                                        <div className="text-xs text-green-300 font-bold uppercase tracking-wider mb-1">Goiás</div>
+                                                        <div className="text-3xl lg:text-4xl font-black text-green-400">{stat.goValue}</div>
+                                                    </div>
+                                                </div>
+                                                
+                                                {/* Fonte específica do dado */}
+                                                <div className="mt-auto border-t border-blue-400/30 pt-4 text-center">
+                                                    <span className="text-[11px] md:text-xs text-blue-200 font-bold uppercase tracking-wider">
+                                                        <i className="fas fa-database mr-2"></i>{stat.source}
+                                                    </span>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -428,26 +515,39 @@
                         </section>
 
                         {/* 3. SIMULADOR DE COTAS INTERATIVO */}
-                        <section className="bg-white p-12 rounded-[3rem] border border-slate-200 shadow-xl">
+                        <section className="bg-white p-12 rounded-[3rem] border border-slate-200 shadow-xl relative z-20">
                             <div className="mb-10 text-center">
                                 <h2 className="text-4xl font-bold mb-4 text-slate-800">
                                     <i className="fas fa-calculator text-blue-600 mr-4"></i> Simulador de Cotas
                                 </h2>
                                 <p className="text-2xl text-slate-600">Simule agora a obrigação legal da sua empresa (5% a 15% da base).</p>
                             </div>
+
+                            {/* BARRA DE LEGENDAS */}
+                            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-slate-600 bg-slate-50 p-4 rounded-2xl max-w-4xl mx-auto border border-slate-200">
+                                <div className="flex items-center font-medium">
+                                    <i className="fas fa-info-circle text-blue-500 mr-2 text-lg"></i>
+                                    Base de cálculo restrita às funções da CBO aplicáveis.
+                                </div>
+                                <div className="flex items-center font-medium">
+                                    <i className="fas fa-ban text-red-400 mr-2 text-lg"></i>
+                                    Exclui: Gerência, Nível Técnico/Superior e Temporários.
+                                </div>
+                            </div>
+
                             <div className="max-w-4xl mx-auto">
-                                <div className="bg-slate-50 p-10 rounded-3xl border border-slate-200 mb-10">
+                                <div className="bg-slate-50 p-10 rounded-3xl border border-slate-200 mb-10 shadow-sm">
                                     <label className="block text-2xl font-bold text-center text-slate-700 mb-8">
                                         Número de Trabalhadores na Base de Cálculo (CBO)
                                     </label>
                                     <div className="flex items-center justify-center space-x-6 mb-8">
-                                        <button onClick={() => adjustQuota(-10)} className="w-20 h-20 bg-slate-200 text-slate-700 rounded-full text-4xl font-black active:bg-slate-300 active:scale-90 transition-all shadow-sm">
+                                        <button onClick={() => adjustQuota(-10)} className="w-20 h-20 bg-white border-2 border-slate-200 text-slate-700 rounded-full text-4xl font-black hover:bg-slate-100 active:scale-90 transition-all shadow-sm">
                                             <i className="fas fa-minus"></i>
                                         </button>
                                         <div className="text-center w-48">
                                             <span className="font-black text-7xl text-blue-600 block">{quotaBase}</span>
                                         </div>
-                                        <button onClick={() => adjustQuota(10)} className="w-20 h-20 bg-blue-600 text-white rounded-full text-4xl font-black active:bg-blue-700 active:scale-90 transition-all shadow-md">
+                                        <button onClick={() => adjustQuota(10)} className="w-20 h-20 bg-blue-600 text-white rounded-full text-4xl font-black hover:bg-blue-700 active:scale-90 transition-all shadow-md">
                                             <i className="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -457,14 +557,93 @@
                                         className="w-full h-4 mb-4"
                                     />
                                 </div>
-                                <div className="grid grid-cols-2 gap-8">
-                                    <div className="bg-slate-100 py-10 rounded-3xl text-center shadow-inner">
-                                        <div className="text-xl text-slate-500 font-bold uppercase mb-2">Cota Mínima (5%)</div>
-                                        <div className="text-7xl font-black text-slate-800">{minQuota}</div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div className="bg-slate-50 p-8 rounded-3xl text-center shadow-inner border border-slate-200 relative">
+                                        <div className="text-sm text-slate-500 font-bold uppercase mb-2 tracking-wider flex justify-center items-center">
+                                            Cota Mínima Obrigatória
+                                        </div>
+                                        <div className="text-7xl font-black text-slate-800 mb-2">{minQuota}</div>
+                                        <div className="text-sm text-slate-600 bg-slate-200/50 inline-block px-3 py-1 rounded-full mb-4 font-bold">Aprendizes (5%)</div>
+                                        <div className="pt-4 border-t border-slate-200 text-xs text-slate-500 text-left leading-relaxed">
+                                            <i className="fas fa-info-circle text-blue-500 mr-1"></i>
+                                            <strong>Nota:</strong> Limite mínimo exigido por lei. Calculado sobre a base aplicável, excluindo gerência e nível técnico.
+                                        </div>
                                     </div>
-                                    <div className="bg-blue-50 py-10 rounded-3xl text-center border-2 border-blue-200">
-                                        <div className="text-xl text-blue-700 font-bold uppercase mb-2">Cota Máxima (15%)</div>
-                                        <div className="text-7xl font-black text-blue-700">{maxQuota}</div>
+                                    <div className="bg-blue-50 p-8 rounded-3xl text-center border-2 border-blue-200 shadow-md relative">
+                                        <div className="text-sm text-blue-700 font-bold uppercase mb-2 tracking-wider flex justify-center items-center">
+                                            Cota Máxima Permitida
+                                        </div>
+                                        <div className="text-7xl font-black text-blue-700 mb-2">{maxQuota}</div>
+                                        <div className="text-sm text-blue-600 bg-blue-100 inline-block px-3 py-1 rounded-full mb-4 font-bold">Aprendizes (15%)</div>
+                                        <div className="pt-4 border-t border-blue-200 text-xs text-blue-700 text-left leading-relaxed">
+                                            <i className="fas fa-info-circle text-blue-500 mr-1"></i>
+                                            <strong>Nota:</strong> Teto legal estipulado pelo Art. 429 da CLT. Pode ser superado em programas experimentais autorizados.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* NOVO: GUIA EXECUTIVO DE REGRAS DA COTA COM MENU SUSPENSO */}
+                            <div className="mt-20 pt-16 border-t border-slate-200">
+                                <div className="text-center mb-12">
+                                    <div className="inline-flex items-center justify-center bg-blue-50 border border-blue-100 text-blue-700 px-6 py-2 rounded-full text-sm font-bold mb-4 uppercase tracking-widest">
+                                        <i className="fas fa-book-open mr-2"></i> Guia Executivo de Cálculos
+                                    </div>
+                                    <h3 className="text-4xl font-bold text-slate-800 mb-4">Regras de Ouro da Legislação</h3>
+                                    <p className="text-xl text-slate-600 max-w-4xl mx-auto">Domine os critérios de elegibilidade, cálculo e gestão de risco para blindar sua empresa de passivos trabalhistas.</p>
+                                </div>
+
+                                {/* MENU SUSPENSO (DROPDOWN) CUSTOMIZADO DAS REGRAS */}
+                                <div className="relative max-w-2xl mx-auto mb-8 z-30 text-left">
+                                    <button
+                                        onClick={() => setIsQuotaDropdownOpen(!isQuotaDropdownOpen)}
+                                        className="w-full bg-white border-2 border-slate-300 text-slate-700 p-5 rounded-2xl flex items-center justify-between hover:border-blue-500 transition-all shadow-md"
+                                    >
+                                        <div className="flex items-center">
+                                            <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                                                <i className={`fas ${activeRuleData.icon}`}></i>
+                                            </div>
+                                            <span className="text-xl font-bold">{activeRuleData.title}</span>
+                                        </div>
+                                        <i className={`fas fa-chevron-down transition-transform ${isQuotaDropdownOpen ? 'rotate-180' : ''}`}></i>
+                                    </button>
+
+                                    {isQuotaDropdownOpen && (
+                                        <div className="absolute top-full left-0 w-full mt-2 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden max-h-80 overflow-y-auto z-40 hide-scroll">
+                                            {quotaCriteria.map(rule => (
+                                                <button
+                                                    key={rule.id}
+                                                    onClick={() => { setActiveQuotaRule(rule.id); setIsQuotaDropdownOpen(false); }}
+                                                    className={`w-full text-left p-4 flex items-center hover:bg-slate-50 transition-colors ${activeQuotaRule === rule.id ? 'bg-blue-50 border-l-4 border-blue-600' : 'border-l-4 border-transparent'}`}
+                                                >
+                                                    <i className={`fas ${rule.icon} text-slate-400 text-lg mr-4 w-6 text-center`}></i>
+                                                    <span className="text-md font-medium text-slate-700">{rule.title}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* PAINEL DE VISUALIZAÇÃO DA REGRA (CENTRALIZADO) */}
+                                <div className="w-full max-w-4xl mx-auto bg-slate-900 rounded-3xl p-10 lg:p-14 flex flex-col justify-center relative overflow-hidden shadow-2xl z-10">
+                                    <div className="absolute top-0 right-0 -mt-10 -mr-10 opacity-5">
+                                        <i className={`fas ${activeRuleData.icon} text-[300px] text-white`}></i>
+                                    </div>
+                                    <div className="relative z-10 fade-in-up" key={activeRuleData.id}>
+                                        <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center text-4xl text-white mb-8 shadow-lg">
+                                            <i className={`fas ${activeRuleData.icon}`}></i>
+                                        </div>
+                                        <h4 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">{activeRuleData.title}</h4>
+                                        <p className="text-2xl text-blue-100 leading-relaxed font-light">
+                                            {activeRuleData.desc}
+                                        </p>
+                                        
+                                        {(activeQuotaRule === 'critico' || activeQuotaRule === 'estrategia' || activeQuotaRule === 'base') && (
+                                            <div className="mt-8 bg-green-500/20 border border-green-400/30 p-5 rounded-2xl flex items-start">
+                                                <i className="fas fa-shield-alt text-green-400 text-3xl mr-4 mt-1"></i>
+                                                <p className="text-green-50 text-lg"><strong>Segurança Jurídica:</strong> Um diagnóstico assertivo da CBO exclui funções incompatíveis e gerenciais, dimensionando a cota real e evitando infrações milionárias do MTE.</p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -519,36 +698,84 @@
                                 Veja como a aprendizagem impulsiona não apenas a carreira, mas o poder aquisitivo do jovem ao longo do tempo.
                             </p>
                             
-                            <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                                {Object.keys(careerTrails).map(key => (
-                                    <button
-                                        key={key}
-                                        onClick={() => setSelectedTrail(key)}
-                                        className={`px-10 py-6 rounded-full text-2xl font-bold flex items-center justify-center transition-all active:scale-95 ${
-                                            selectedTrail === key ? 'bg-blue-600 text-white shadow-xl border-4 border-blue-500' : 'bg-slate-800 text-slate-400 border-2 border-slate-700'
-                                        }`}
-                                    >
-                                        <i className={`${careerTrails[key].icon} mr-4 text-3xl`}></i> {careerTrails[key].name}
-                                    </button>
-                                ))}
+                            {/* MENU SUSPENSO (DROPDOWN) CUSTOMIZADO */}
+                            <div className="relative max-w-md mx-auto mb-8 z-20 text-left">
+                                <button
+                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                    className="w-full bg-slate-800 border-2 border-slate-600 text-white p-5 rounded-2xl flex items-center justify-between hover:border-blue-500 transition-all shadow-xl"
+                                >
+                                    <div className="flex items-center">
+                                        <i className={`${careerTrails[selectedTrail].icon} text-blue-400 text-2xl mr-4`}></i>
+                                        <span className="text-xl font-bold">{careerTrails[selectedTrail].name}</span>
+                                    </div>
+                                    <i className={`fas fa-chevron-down transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}></i>
+                                </button>
+
+                                {isDropdownOpen && (
+                                    <div className="absolute top-full left-0 w-full mt-2 bg-slate-800 border border-slate-600 rounded-2xl shadow-2xl overflow-hidden">
+                                        {Object.keys(careerTrails).map(key => (
+                                            <button
+                                                key={key}
+                                                onClick={() => { setSelectedTrail(key); setIsDropdownOpen(false); }}
+                                                className={`w-full text-left p-5 flex items-center hover:bg-slate-700 transition-colors ${selectedTrail === key ? 'bg-blue-900/40 border-l-4 border-blue-500' : 'border-l-4 border-transparent'}`}
+                                            >
+                                                <i className={`${careerTrails[key].icon} text-slate-400 text-xl mr-4 w-6 text-center`}></i>
+                                                <span className="text-lg font-medium text-slate-200">{careerTrails[key].name}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* BARRA DE LEGENDAS EXPLICATIVAS */}
+                            <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-slate-400 bg-slate-800/50 p-4 rounded-2xl max-w-4xl mx-auto border border-slate-700">
+                                <div className="flex items-center">
+                                    <div className="w-6 h-6 rounded-full bg-slate-900 border border-slate-600 flex items-center justify-center text-xs mr-3 font-bold">#</div> 
+                                    Nível de Experiência na Trilha
+                                </div>
+                                <div className="flex items-center">
+                                    <i className="fas fa-arrow-trend-up text-green-400 mr-3 text-lg"></i> 
+                                    Evolução Salarial % vs. Salário de Partida
+                                </div>
+                                <div className="flex items-center">
+                                    <i className="fas fa-info-circle text-blue-400 mr-3 text-lg"></i> 
+                                    Média calculada para o mercado Goiano
+                                </div>
                             </div>
                             
+                            {/* GRID DE CARTÕES DE CARREIRA */}
                             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-                                <div className="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-slate-700 -translate-y-1/2 z-0"></div>
+                                <div className="hidden md:block absolute top-[40%] left-0 w-full h-2 bg-slate-700 -translate-y-1/2 z-0"></div>
                                 {careerTrails[selectedTrail].steps.map((step, idx) => (
-                                    <div key={idx} className="fade-in-up bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-700 relative z-10 flex flex-col h-full" style={{animationDelay: `${idx * 0.1}s`}}>
-                                        <div className="w-16 h-16 rounded-full bg-slate-900 text-slate-400 flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-inner border-2 border-slate-700">
+                                    <div key={idx} className="fade-in-up bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-700 relative z-10 flex flex-col h-full hover:border-blue-500/50 transition-colors group" style={{animationDelay: `${idx * 0.1}s`}}>
+                                        
+                                        <div className="w-16 h-16 rounded-full bg-slate-900 text-slate-400 flex items-center justify-center font-black text-2xl mx-auto mb-6 shadow-inner border-2 border-slate-700 group-hover:text-blue-400 group-hover:border-blue-500/50 transition-colors">
                                             {idx + 1}
                                         </div>
-                                        <div className="flex-grow">
-                                            <h4 className="font-bold text-2xl text-white mb-2">{step.role}</h4>
-                                            <p className="text-lg text-slate-400 mb-6">{step.desc}</p>
+                                        
+                                        <div className="flex-grow mb-6">
+                                            <h4 className="font-bold text-2xl text-white mb-2 group-hover:text-blue-300 transition-colors">{step.role}</h4>
+                                            <p className="text-md text-slate-400 leading-relaxed">{step.desc}</p>
                                         </div>
-                                        <div className="bg-slate-900/50 p-4 rounded-2xl border border-slate-700 mt-auto">
-                                            <div className="text-sm text-slate-500 font-bold uppercase mb-1 tracking-wider">Média Salarial</div>
-                                            <div className="text-3xl font-black text-green-400 mb-2">{step.salary}</div>
-                                            <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-bold ${step.trend === 'up' ? 'bg-green-900/50 text-green-400' : 'bg-slate-700 text-slate-300'}`}>
-                                                {step.trend === 'up' && <i className="fas fa-arrow-trend-up mr-2"></i>} {step.tag}
+                                        
+                                        {/* CAIXA SALARIAL COM NOTAS */}
+                                        <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-700 mt-auto relative text-left">
+                                            <div className="text-xs text-slate-500 font-bold uppercase mb-2 tracking-wider flex justify-between items-center">
+                                                Estimativa Salarial
+                                                <i className="fas fa-info-circle text-slate-600" title="Valores referenciais médios do CAGED"></i>
+                                            </div>
+                                            
+                                            <div className="text-3xl font-black text-green-400 mb-3 text-center">{step.salary}</div>
+                                            
+                                            <div className="flex justify-center mb-4">
+                                                <div className={`inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold shadow-sm ${step.trend === 'up' ? 'bg-green-900/40 text-green-400 border border-green-500/30' : 'bg-slate-800 text-slate-300 border border-slate-600'}`}>
+                                                    {step.trend === 'up' && <i className="fas fa-arrow-trend-up mr-2"></i>} {step.tag}
+                                                </div>
+                                            </div>
+                                            
+                                            {/* Nota Explicativa Inferior */}
+                                            <div className="mt-2 pt-3 border-t border-slate-700/50 text-[11px] text-slate-500 leading-relaxed text-center">
+                                                * Projeção de ganhos ao alcançar a posição de <strong>{step.role}</strong> na indústria local.
                                             </div>
                                         </div>
                                     </div>
@@ -614,7 +841,7 @@
                             </div>
                         </section>
 
-                        {/* 7. PORTFÓLIO DE CURSOS (INDÚSTRIA 4.0) */}
+                        {/* 7. NOVO BLOCO: PORTFÓLIO DE CURSOS (INDÚSTRIA 4.0) - AGORA NO FINAL */}
                         <section className="bg-white p-12 lg:p-16 rounded-[3rem] border border-slate-200 shadow-xl relative overflow-hidden">
                             
                             {/* Header Estratégico para o RH */}
@@ -626,7 +853,7 @@
                                     Novos Horizontes de Formação
                                 </h2>
                                 <p className="text-2xl text-slate-600 leading-relaxed">
-                                    Acelere a inovação do seu quadro de colaboradores. Conheça as novas trilhas de Aprendizagem Industrial desenvolvidas sob medida pelo SENAI Goiás para atender às demandas de alta tecnologia da <strong className="text-blue-600">Indústria 4.0</strong>.
+                                    Acelere a inovação do seu quadro de colaboradores. Conheça as novas trilhas de Aprendizagem Profissional desenvolvidas sob medida pelo SENAI Goiás para atender às demandas de alta tecnologia da <strong className="text-blue-600">Indústria 4.0</strong>.
                                 </p>
                             </div>
 
