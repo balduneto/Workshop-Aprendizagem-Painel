@@ -135,15 +135,6 @@
                 source: 'Fonte: Ministério do Trabalho e Emprego - MTE (Fev/2025)' 
             },
             { 
-                id: 2, 
-                title: 'Potencial de Contratação', 
-                desc: 'Vagas mapeadas pela fiscalização aguardando contratação.',
-                brValue: '+1 Milhão', 
-                goValue: '29.162', 
-                icon: 'fa-map-marked-alt', 
-                source: 'Fonte: Levantamento de Potencial MTE (Nov/2024)' 
-            },
-            { 
                 id: 3, 
                 title: 'Empregabilidade SENAI', 
                 desc: 'Ex-alunos trabalhando formalmente em até 1 ano após o curso.',
@@ -151,15 +142,114 @@
                 goValue: '81,4%', 
                 icon: 'fa-chart-line', 
                 source: 'Fonte: SAPES (2023-2025)' 
+            }
+        ];
+
+        // --- DADOS MACROECONÔMICOS (NOVO) ---
+        const macroCards = [
+            {
+                id: 'macro1',
+                icon: 'fa-landmark',
+                title: 'O Gigante Orçamentário',
+                subtitle: 'O custo da formação profissional versus a arrecadação das prefeituras.',
+                stats: [
+                    { label: 'Investimento Anual SENAI-GO', value: 'R$ 125,7 Milhões' },
+                    { label: 'Municípios com Orçamento Menor', value: '116 (47% do Estado)' }
+                ],
+                analysis: (
+                    <ul className="space-y-4 list-none text-base md:text-lg">
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Maior que 116 cidades:</strong> O investimento anual da indústria na Aprendizagem supera o orçamento de 47% das prefeituras de Goiás.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Força Privada:</strong> O que 173 indústrias injetam sozinhas na formação de jovens é maior do que muitas prefeituras têm para manter saúde, educação e obras.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Eficiência Comprovada:</strong> É um exemplo prático de como o recurso privado qualifica a sociedade sem depender de impostos ou repasses do governo.</span>
+                        </li>
+                    </ul>
+                )
             },
-            { 
-                id: 4, 
-                title: 'Trabalhadores Formados', 
-                desc: 'Total de formações profissionais realizadas pelo SENAI no Brasil e em Goiás ao longo da história.',
-                brValue: '+92 Milhões', 
-                goValue: '~3 Milhões', 
-                icon: 'fa-users', 
-                source: 'Fontes: CNI / Sistema Indústria e Acervo Histórico FIEG / SENAI-GO' 
+            {
+                id: 'macro2',
+                icon: 'fa-city',
+                title: 'A "Cidade SENAI"',
+                subtitle: 'O exército de jovens aprendizes e a escala populacional.',
+                stats: [
+                    { label: 'Total de Aprendizes', value: '7.978 jovens' },
+                    { label: 'Cidades Menores que o Programa', value: '72 municípios' }
+                ],
+                analysis: (
+                    <ul className="space-y-4 list-none text-base md:text-lg">
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Escala Municipal:</strong> Se os quase 8 mil aprendizes formassem um município, este seria mais populoso que 72 cidades goianas.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Pleno Emprego e Qualificação:</strong> Trata-se de uma população demográfica onde 100% dos integrantes possuem carteira assinada, renda e estão estudando.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Combate ao Êxodo:</strong> Ao criar perspectivas reais de carreira, a Aprendizagem ajuda a reter os jovens no interior, evitando a busca por subempregos em outras regiões.</span>
+                        </li>
+                    </ul>
+                )
+            },
+            {
+                id: 'macro3',
+                icon: 'fa-project-diagram',
+                title: 'Capilaridade e Escala',
+                subtitle: 'A infraestrutura por trás do desenvolvimento regional.',
+                stats: [
+                    { label: 'Polos de Irradiação (SENAI)', value: '18 Unidades' },
+                    { label: 'Jovens no Top 5 Indústrias', value: '750 aprendizes' }
+                ],
+                analysis: (
+                    <ul className="space-y-4 list-none text-base md:text-lg">
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Alto Impacto Concentrado:</strong> Apenas 18 unidades operacionais do SENAI conseguem centralizar e atender toda a demanda tecnológica de 173 indústrias.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Aglomeração de Renda:</strong> Gigantes industriais agrupam centenas de aprendizes. Isso cria um forte polo gerador de salários e conhecimento técnico.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Mudança de Paradigma:</strong> Nesses polos, o setor produtivo toma a frente e substitui a prefeitura local como o principal grande empregador da juventude.</span>
+                        </li>
+                    </ul>
+                )
+            },
+            {
+                id: 'macro4',
+                icon: 'fa-wallet',
+                title: 'Liquidez e Consumo',
+                subtitle: 'O impacto do salário do aprendiz na microeconomia local.',
+                stats: [
+                    { label: 'Custo Médio Mensal por Jovem', value: 'R$ 1.313,55' },
+                    { label: 'Injeção Direta no Varejo', value: 'R$ 10,4 Milhões/mês' }
+                ],
+                analysis: (
+                    <ul className="space-y-4 list-none text-base md:text-lg">
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Injeção na Veia:</strong> São mais de R$ 10,4 milhões pagos todos os meses, entregues diretamente nas mãos dos jovens de Goiás.</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Gasto Imediato:</strong> Jovens no primeiro emprego gastam quase 100% da renda localmente (alimentação, roupas, lazer e tecnologia).</span>
+                        </li>
+                        <li className="flex items-start">
+                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                            <span><strong className="text-white">Motor do Comércio Local:</strong> A remuneração atua como um potente impulsionador do varejo, oxigenando silenciosamente a economia dos municípios e bairros.</span>
+                        </li>
+                    </ul>
+                )
             }
         ];
 
@@ -580,6 +670,7 @@
         function App() {
             const [activeYear, setActiveYear] = useState(timelineEvents[0].year);
             const [revealedNumbers, setRevealedNumbers] = useState({});
+            const [revealedMacro, setRevealedMacro] = useState({}); // NOVO ESTADO
             const [quotaBase, setQuotaBase] = useState(150);
             const [selectedTrail, setSelectedTrail] = useState('manufatura');
             
@@ -593,6 +684,7 @@
             const [activeQuotaRule, setActiveQuotaRule] = useState(quotaCriteria[0].id);
 
             const toggleNumber = (id) => setRevealedNumbers(prev => ({ ...prev, [id]: !prev[id] }));
+            const toggleMacro = (id) => setRevealedMacro(prev => ({ ...prev, [id]: !prev[id] })); // NOVA FUNÇÃO
             
             const adjustQuota = (amount) => {
                 setQuotaBase(prev => {
@@ -750,6 +842,85 @@
                                         )}
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* NOVA SUBSEÇÃO: O PESO MACROECONÔMICO */}
+                            <div className="mt-24 pt-16 border-t border-slate-700 z-10 relative">
+                                <div className="text-center mb-12">
+                                    <div className="inline-flex items-center justify-center bg-blue-900/50 border border-blue-500/30 text-blue-300 px-6 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-widest">
+                                        <i className="fas fa-search-dollar mr-2"></i> O Peso Macroeconômico (2025)
+                                    </div>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                                        A Aprendizagem na Estrutura Econômica Goiana
+                                    </h3>
+                                    <p className="text-xl text-slate-400 max-w-4xl mx-auto leading-relaxed">
+                                        Uma análise comparativa entre o investimento privado em capital humano e a infraestrutura dos municípios.
+                                        <span className="block mt-4 text-blue-400 font-medium text-base">
+                                            <i className="fas fa-database mr-2"></i> Fontes: Observatório da Indústria, Portal da Transparência (Goiás e Municípios) e IBGE
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {macroCards.map((card) => (
+                                        <div 
+                                            key={card.id}
+                                            onClick={() => toggleMacro(card.id)}
+                                            className={`cursor-pointer rounded-3xl p-8 transition-all duration-300 active:scale-95 flex flex-col border-2 min-h-[340px] relative overflow-hidden ${
+                                                revealedMacro[card.id] 
+                                                ? 'bg-indigo-950 border-indigo-500 shadow-2xl shadow-indigo-900/50' 
+                                                : 'bg-slate-800 border-slate-700 hover:bg-slate-700 hover:border-slate-500'
+                                            }`}
+                                        >
+                                            {!revealedMacro[card.id] ? (
+                                                <div className="fade-in-up flex flex-col h-full z-10">
+                                                    <div className="flex items-start justify-between mb-6">
+                                                        <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-inner border border-slate-700 flex-shrink-0">
+                                                            <i className={`fas ${card.icon} text-3xl text-blue-400`}></i>
+                                                        </div>
+                                                    </div>
+                                                    <h3 className="text-2xl font-black text-white mb-2">{card.title}</h3>
+                                                    <p className="text-sm text-slate-400 mb-8 flex-grow">{card.subtitle}</p>
+                                                    
+                                                    <div className="flex flex-col gap-3 mb-6">
+                                                        {card.stats.map((stat, idx) => (
+                                                            <div key={idx} className="bg-slate-900/60 rounded-xl p-4 flex justify-between items-center border border-slate-700/50">
+                                                                <span className="text-[11px] text-slate-400 uppercase font-bold tracking-wider w-1/2">{stat.label}</span>
+                                                                <span className="text-lg font-black text-blue-300 text-right w-1/2">{stat.value}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                    <p className="text-[11px] text-blue-400 font-bold uppercase tracking-widest text-center mt-auto">
+                                                        <i className="fas fa-hand-pointer mr-2"></i> Toque para ler a Análise da Informação
+                                                    </p>
+                                                </div>
+                                            ) : (
+                                                <div className="fade-in-up flex flex-col h-full text-left z-10">
+                                                    <div className="flex items-center mb-6 pb-6 border-b border-indigo-800/50">
+                                                        <div className="w-12 h-12 bg-indigo-900 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                                            <i className={`fas ${card.icon} text-xl text-indigo-300`}></i>
+                                                        </div>
+                                                        <h3 className="text-xl md:text-2xl font-black text-white leading-tight">{card.title}</h3>
+                                                    </div>
+                                                    <div className="flex-1 flex flex-col justify-center">
+                                                        <div className="relative">
+                                                            <i className="fas fa-quote-left text-4xl text-indigo-800/50 absolute -top-2 -left-2"></i>
+                                                            <div className="text-indigo-100 leading-relaxed relative z-10 font-medium pl-6 md:pl-10">
+                                                                {card.analysis}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-[11px] text-indigo-400/70 font-bold uppercase tracking-widest text-center mt-6">
+                                                        <i className="fas fa-undo mr-2"></i> Toque para voltar aos dados
+                                                    </p>
+                                                </div>
+                                            )}
+                                            
+                                            {/* Marca d'água de fundo */}
+                                            <i className={`fas ${card.icon} text-[200px] absolute -bottom-10 -right-10 opacity-5 pointer-events-none transform -rotate-12`}></i>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </section>
 
@@ -946,8 +1117,9 @@
                                         <h3 className="text-3xl font-black text-slate-900 mb-4">{activeFaqData.titleText}</h3>
                                         <p className="text-2xl text-slate-600 leading-relaxed">{activeFaqData.desc}</p>
                                         {(activeFaq === 'portal' || activeFaq === 'manual') && (
-                                            <div className="mt-6 inline-flex items-center text-blue-600 font-bold text-xl bg-blue-50 px-4 py-2 rounded-lg">
-                                                <i className="fas fa-external-link-alt mr-3"></i> Acesse os canais oficiais do SESI/SENAI e MTE
+                                            <div className="mt-6 inline-flex items-start text-slate-600 font-medium text-lg bg-slate-100/80 px-5 py-4 rounded-xl border border-slate-200">
+                                                <i className="fas fa-info-circle text-blue-500 mr-3 mt-1 text-xl flex-shrink-0"></i>
+                                                <span><strong>Recomendação:</strong> Consulte as diretrizes detalhadas diretamente nos canais oficiais do SESI/SENAI e MTE.</span>
                                             </div>
                                         )}
                                     </div>
