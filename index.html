@@ -510,46 +510,301 @@
         const newCourses = [
             {
                 id: 'ia',
-                title: 'Inteligência Artificial',
-                subtitle: 'Operador de Processos Digitais',
+                title: 'Operador de Processos Digitais em Inteligência Artificial',
+                subtitle: 'CBO: 3172-05 | Operador de Computador',
                 hours: '480h',
                 area: 'Tecnologia da Informação',
                 icon: 'fa-brain',
                 image: 'https://i.postimg.cc/prKX9QGL/Gemini-Generated-Image-e78kmxe78kmxe78k.png',
-                desc: 'Formação inovadora para atuar na Indústria 4.0. O jovem aprende a analisar dados, desenvolver algoritmos, operar ferramentas de Business Intelligence (BI) e aplicar modelos de Processamento de Linguagem Natural (PLN) para otimizar rotinas empresariais.',
-                rhPitch: 'Injete inovação diretamente na sua operação. Este jovem talento é capacitado para automatizar tarefas repetitivas, extrair inteligência de dados e apoiar a tomada de decisão da sua liderança técnica com visão analítica.'
+                desc: (
+                    <div className="space-y-6">
+                        <p className="text-xl text-slate-700 font-medium">
+                            O aluno será capaz de compreender, analisar e aplicar ferramentas de Inteligência Artificial e BIG DATA para tomada de decisão, atendendo normas de qualidade, usabilidade e segurança da informação.
+                        </p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-slate-300 pb-3 mb-4">
+                                    <h5 className="font-black text-slate-800 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-users-cog text-slate-500 mr-2 text-lg"></i> Módulo Básico
+                                    </h5>
+                                    <span className="bg-slate-200 text-slate-700 font-bold px-3 py-1 rounded-full text-xs">120 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-slate-600 font-medium">
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Raciocínio Lógico e Análise de Dados (20h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Transformação Digital (20h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos da Comunicação (20h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Relações Sócio-profissionais e Ética (20h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Saúde e Segurança do Trabalho (20h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Planejamento e Organização (20h)</li>
+                                </ul>
+                            </div>
+                            
+                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-blue-200 pb-3 mb-4">
+                                    <h5 className="font-black text-blue-900 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-laptop-code text-blue-500 mr-2 text-lg"></i> Módulo Específico
+                                    </h5>
+                                    <span className="bg-blue-200 text-blue-800 font-bold px-3 py-1 rounded-full text-xs">360 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-blue-800 font-medium">
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Algoritmos e Programação</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">120h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Inteligência Artificial</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">120h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Business Intelligence</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">80h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Proc. de Linguagem Natural</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">40h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div className="bg-amber-50 border border-amber-200 text-amber-800 p-5 rounded-2xl text-sm flex items-start shadow-sm mt-4">
+                            <i className="fas fa-user-check text-amber-500 mr-3 mt-0.5 text-xl"></i>
+                            <div>
+                                <strong className="block mb-1 text-base uppercase tracking-wider text-amber-900">Requisitos de Acesso</strong>
+                                Estar cursando a partir do 9º ano do Ensino Fundamental e ter pelo menos 14 anos de idade.
+                            </div>
+                        </div>
+                    </div>
+                ),
+                rhPitch: 'Injete inovação diretamente na sua operação. Este jovem talento é capacitado para automatizar tarefas repetitivas, extrair inteligência de dados (Big Data/BI) e apoiar a tomada de decisão da sua liderança técnica com visão analítica.'
             },
             {
                 id: 'robotica',
-                title: 'Processos Robotizados',
-                subtitle: 'Auxiliar de Processos',
+                title: 'Auxiliar de Processos Robotizados',
+                subtitle: 'CBO: 7811-10 | Operador de Robô',
                 hours: '520h',
                 area: 'Metalmecânica / Automação',
                 icon: 'fa-robot',
                 image: 'https://i.postimg.cc/43RPVXxh/Gemini-Generated-Image-uu647kuu647kuu64.png',
-                desc: 'Prepara o jovem para operar sistemas automatizados e células robotizadas industriais. Inclui programação básica CNC, operação de robôs de conformação e montagem, além da execução segura de solda robotizada (MIG/MAG/TIG).',
+                desc: (
+                    <div className="space-y-6">
+                        <p className="text-xl text-slate-700 font-medium">
+                            Capacita o profissional para operar sistemas automatizados e células robotizadas aplicados à produção industrial de componentes metálicos e não metálicos, além de executar solda robotizada com foco em eficiência, qualidade e segurança.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-slate-300 pb-3 mb-4">
+                                    <h5 className="font-black text-slate-800 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-cogs text-slate-500 mr-2 text-lg"></i> Módulo Introdutório
+                                    </h5>
+                                    <span className="bg-slate-200 text-slate-700 font-bold px-3 py-1 rounded-full text-xs">240 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-slate-600 font-medium">
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos Mecânicos (80h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos da Automação e Processos (80h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Noções de Manutenção Industrial (40h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Introdução à Programação (40h)</li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-blue-200 pb-3 mb-4">
+                                    <h5 className="font-black text-blue-900 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-robot text-blue-500 mr-2 text-lg"></i> Módulo Específico
+                                    </h5>
+                                    <span className="bg-blue-200 text-blue-800 font-bold px-3 py-1 rounded-full text-xs">160 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-blue-800 font-medium">
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Robótica Aplicada a Soldagem</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">100h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Processos Industriais Automatizados</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">60h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row gap-4 mt-4">
+                            <div className="bg-slate-50 border border-slate-200 text-slate-600 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-layer-group text-slate-400 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-slate-700">Educação para o Trabalho</strong>
+                                    Módulo transversal de 120 horas integrado ao curso.
+                                </div>
+                            </div>
+                            <div className="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-user-check text-amber-500 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-amber-900">Requisitos de Acesso</strong>
+                                    Ensino Fundamental (9º ano) e idade de 18 a 24 anos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ),
                 rhPitch: 'A solução ideal para indústrias em processo de modernização fabril. O aprendiz chega preparado para interagir com interfaces homem-máquina (IHM) e atuar na linha de frente da robótica industrial com total segurança.'
             },
             {
                 id: 'automotiva',
-                title: 'Manufatura Automotiva',
-                subtitle: 'Operador de Processos',
+                title: 'Operador de Processos de Manufatura Automotiva',
+                subtitle: 'CBO: 7255-05 | Montador de Veículos',
                 hours: '800h',
                 area: 'Mecânica Automotiva',
                 icon: 'fa-car-side',
                 image: 'https://i.postimg.cc/xdbCDSvC/Gemini-Generated-Image-esy562esy562esy5.png',
-                desc: 'Capacitação robusta para atuar na linha de produção de veículos. Envolve armação de carrocerias (Bodyshop), processos de pintura, montagem de sistemas mecânicos e elétricos veiculares, e forte base em controle de qualidade e Metrologia.',
+                desc: (
+                    <div className="space-y-6">
+                        <p className="text-xl text-slate-700 font-medium">
+                            Forma profissionais altamente capacitados para atuar em todo o fluxo da manufatura de veículos, envolvendo montagem mecânica e elétrica, pintura, carroceria (bodyshop) e logística industrial baseada em manufatura enxuta.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-slate-300 pb-3 mb-4">
+                                    <h5 className="font-black text-slate-800 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-cogs text-slate-500 mr-2 text-lg"></i> Módulo Introdutório
+                                    </h5>
+                                    <span className="bg-slate-200 text-slate-700 font-bold px-3 py-1 rounded-full text-xs">340 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-slate-600 font-medium">
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos de Veículos Automotores (80h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos de Processos Industriais (80h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Metrologia, Desenho e Qualidade (80h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Operação de Ferramentas e Dispositivos (60h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos de Eletricidade Veicular (40h)</li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-blue-200 pb-3 mb-4">
+                                    <h5 className="font-black text-blue-900 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-car-side text-blue-500 mr-2 text-lg"></i> Módulo Específico
+                                    </h5>
+                                    <span className="bg-blue-200 text-blue-800 font-bold px-3 py-1 rounded-full text-xs">340 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-blue-800 font-medium">
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Montagem de Sistemas Automotivos</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">100h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Logística Industrial e Abastecimento</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">80h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Armação de Carrocerias (Bodyshop)</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">60h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Processos de Pintura Automotiva</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">60h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Controle de Produção e Melhoria Contínua</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">40h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row gap-4 mt-4">
+                            <div className="bg-slate-50 border border-slate-200 text-slate-600 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-layer-group text-slate-400 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-slate-700">Educação para o Trabalho</strong>
+                                    Módulo transversal de 120 horas integrado ao curso.
+                                </div>
+                            </div>
+                            <div className="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-user-check text-amber-500 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-amber-900">Requisitos de Acesso</strong>
+                                    Cursando o Ensino Médio e idade entre 18 a 24 anos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ),
                 rhPitch: 'Reduza o tempo de adaptação de novos operadores na sua linha de montagem. O jovem adquire uma visão sistêmica da manufatura enxuta (Lean), melhoria contínua e controle rigoroso de qualidade automotiva.'
             },
             {
                 id: 'logistica',
                 title: 'Almoxarife de Obras',
-                subtitle: 'Gestão e Logística',
+                subtitle: 'CBO: 4141-05 | Logística e Armazenagem',
                 hours: '480h',
                 area: 'Infraestrutura / Logística',
                 icon: 'fa-boxes',
                 image: 'https://i.postimg.cc/d1rj0pYn/Gemini-Generated-Image-cosqnqcosqnqcosq.png',
-                desc: 'Foco na eficiência logística de canteiros de obras e indústrias. Ensina recebimento, armazenagem, controle de estoque (curva ABC, FIFO), e expedição de materiais, utilizando ferramentas informatizadas para evitar rupturas de estoque.',
+                desc: (
+                    <div className="space-y-6">
+                        <p className="text-xl text-slate-700 font-medium">
+                            Desenvolve competências essenciais para a recepção, conferência, armazenagem, movimentação e distribuição de materiais, suportando com alta eficiência a infraestrutura e a cadeia de suprimentos de canteiros de obras e indústrias.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-slate-300 pb-3 mb-4">
+                                    <h5 className="font-black text-slate-800 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-cogs text-slate-500 mr-2 text-lg"></i> Módulo Introdutório
+                                    </h5>
+                                    <span className="bg-slate-200 text-slate-700 font-bold px-3 py-1 rounded-full text-xs">176 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-slate-600 font-medium">
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos da Logística (60h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos da Construção Civil (58h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Ciências Aplicadas (30h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Fundamentos da Indústria 4.0 (12h)</li>
+                                    <li className="flex items-start"><i className="fas fa-check text-slate-400 mt-1 mr-2 flex-shrink-0"></i> Sustentabilidade / Qualidade (16h)</li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm flex flex-col">
+                                <div className="flex justify-between items-center border-b border-blue-200 pb-3 mb-4">
+                                    <h5 className="font-black text-blue-900 text-sm uppercase tracking-wider flex items-center">
+                                        <i className="fas fa-boxes text-blue-500 mr-2 text-lg"></i> Módulo Específico
+                                    </h5>
+                                    <span className="bg-blue-200 text-blue-800 font-bold px-3 py-1 rounded-full text-xs">184 horas</span>
+                                </div>
+                                <ul className="text-sm space-y-3 text-blue-800 font-medium">
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Recebimento e Armazenagem</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">64h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Controle de Estoque</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">60h</span>
+                                    </li>
+                                    <li className="flex items-center justify-between">
+                                        <span className="flex items-center"><i className="fas fa-chevron-right text-blue-400 mr-2"></i> Expedição de Materiais</span>
+                                        <span className="text-blue-600 font-bold text-xs bg-blue-100 px-2 py-0.5 rounded">60h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row gap-4 mt-4">
+                            <div className="bg-slate-50 border border-slate-200 text-slate-600 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-layer-group text-slate-400 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-slate-700">Educação para o Trabalho</strong>
+                                    Módulo transversal de 120 horas integrado ao curso.
+                                </div>
+                            </div>
+                            <div className="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-sm flex items-center shadow-sm flex-1">
+                                <i className="fas fa-user-check text-amber-500 mr-3 text-xl"></i>
+                                <div>
+                                    <strong className="block text-amber-900">Requisitos de Acesso</strong>
+                                    Ensino Fundamental (9º ano) e idade entre 18 a 24 anos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ),
                 rhPitch: 'Combata o desperdício financeiro na sua cadeia de suprimentos. Este perfil garante acuracidade no inventário, organização do arranjo físico e eficiência na entrega de insumos para a linha de produção ou obra.'
             }
         ];
@@ -626,10 +881,10 @@
                                 <div className="flex items-center space-x-3 mb-2">
                                     <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{course.area}</span>
                                     <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
-                                        <i className="fas fa-clock mr-2"></i> {course.hours} (Teoria)
+                                        <i className="fas fa-clock mr-2"></i> {course.hours}
                                     </span>
                                 </div>
-                                <h3 className="font-black text-4xl leading-tight">{course.title}</h3>
+                                <h3 className="font-black text-3xl md:text-4xl leading-tight">{course.title}</h3>
                                 <p className="text-blue-200 text-lg font-medium">{course.subtitle}</p>
                             </div>
                         </div>
@@ -637,12 +892,13 @@
                         {/* Conteúdo Didático */}
                         <div className="p-8 overflow-y-auto">
                             <div className="mb-8">
-                                <h4 className="text-xl font-bold text-slate-800 mb-3 flex items-center">
-                                    <i className="fas fa-book-reader text-blue-600 mr-3"></i> O que o aprendiz dominará?
+                                <h4 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                                    <i className="fas fa-book-reader text-blue-600 mr-3 text-2xl"></i> O que o aprendiz dominará?
                                 </h4>
-                                <p className="text-lg text-slate-600 leading-relaxed">
+                                {/* Trocado de <p> para <div> para suportar renderização de blocos JSX mais complexos */}
+                                <div className="text-lg text-slate-600 leading-relaxed">
                                     {course.desc}
-                                </p>
+                                </div>
                             </div>
 
                             {/* Apelo para o RH */}
@@ -1319,8 +1575,13 @@
                                                 alt={course.title} 
                                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                                             
+                                            {/* DESTAQUE CARGA HORÁRIA (Top Right) */}
+                                            <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-black px-3 py-1.5 rounded-lg border border-slate-700/50 flex items-center shadow-lg">
+                                                <i className="fas fa-clock text-blue-400 mr-2"></i> {course.hours}
+                                            </div>
+
                                             <div className="absolute bottom-4 right-4 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl shadow-lg group-hover:bg-blue-500">
                                                 <i className={`fas ${course.icon}`}></i>
                                             </div>
@@ -1328,11 +1589,12 @@
 
                                         <div className="p-6 flex flex-col flex-grow">
                                             <span className="text-blue-600 text-xs font-bold uppercase tracking-wider mb-2 block">{course.area}</span>
-                                            <h3 className="font-black text-2xl text-slate-800 leading-tight mb-1">{course.title}</h3>
-                                            <p className="text-sm font-medium text-slate-500 mb-4">{course.subtitle}</p>
+                                            {/* NOME DO CURSO EM DESTAQUE */}
+                                            <h3 className="font-black text-xl lg:text-2xl text-slate-800 leading-tight mb-2">{course.title}</h3>
+                                            <p className="text-sm font-semibold text-slate-500 mb-4">{course.subtitle}</p>
                                             
-                                            <div className="mt-auto flex items-center text-sm font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
-                                                <i className="fas fa-hand-pointer mr-2"></i> Toque para conhecer
+                                            <div className="mt-auto flex items-center text-sm font-bold text-slate-400 group-hover:text-blue-600 transition-colors pt-4 border-t border-slate-200">
+                                                <i className="fas fa-hand-pointer mr-2 text-lg"></i> Ver Matriz Curricular
                                             </div>
                                         </div>
                                     </div>
