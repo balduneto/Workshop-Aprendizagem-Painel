@@ -254,14 +254,14 @@
         ];
 
         const goiasCases = [
-            { id: 'hypera', name: 'Polo Farmoquímico', model: 'Anápolis / Aparecida', desc: 'Gigantes do setor farmoquímico em Goiás absorvem maciçamente aprendizes do SENAI para atuar em rotinas laboratoriais, logística avançada e automação industrial, focando na sucessão interna.', logo: 'fa-pills', image: 'https://i.postimg.cc/SsBhCp4S/Farmoquimica.jpg' },
-            { id: 'caoa', name: 'Polo Automotivo', model: 'Anápolis / Catalão', desc: 'Montadoras instaladas em Goiás transformam jovens aprendizes em especialistas. O treinamento em mecatrônica garante mão de obra altamente qualificada para linhas de montagem de precisão.', logo: 'fa-car', image: 'https://i.postimg.cc/0jTLMGpm/automotiva.jpg' },
-            { id: 'agro', name: 'Agroindústria', model: 'Rio Verde / Goiânia', desc: 'O motor do agronegócio goiano integra jovens na manutenção mecânica, elétrica e refrigeração, essenciais para a continuidade produtiva ininterrupta.', logo: 'fa-leaf', image: 'https://i.postimg.cc/CxzcTnDN/Agroindustria.webp' },
-            { id: 'mineracao', name: 'Mineração', model: 'Norte Goiano / Catalão', desc: 'Operações complexas de mineração utilizam o modelo de imersão e simuladores. Aprendizes passam por intensa carga teórica antes do "on-the-job training".', logo: 'fa-hard-hat', image: 'https://i.postimg.cc/VvtzVkgd/Mineracao.jpg' },
-            { id: 'bioenergia', name: 'Bioenergia e Etanol', model: 'Sudoeste / Sul Goiano', desc: 'As usinas sucroenergéticas goianas lideram a transição energética. Aprendizes atuam na manutenção de máquinas pesadas, elétrica industrial e laboratórios químicos, impulsionando a produção de energia limpa.', logo: 'fa-bolt', image: 'https://i.postimg.cc/L838ShpP/Bioenergia.webp' },
-            { id: 'vestuario', name: 'Polo de Confecções', model: 'Goiânia / Jaraguá / Taquaral', desc: 'Um dos maiores polos atacadistas de moda do Brasil. Jovens são integrados ao corte e costura industrial, modelagem digital (CAD) e logística de e-commerce, modernizando a tradição têxtil de Goiás.', logo: 'fa-tshirt', image: 'https://i.postimg.cc/HsKLzFtV/Vestuario.jpg' },
-            { id: 'construcao', name: 'Construção Civil', model: 'Região Metropolitana', desc: 'Com o forte aquecimento imobiliário, o setor absorve aprendizes em edificações, instalações elétricas, hidráulicas e na gestão ágil de almoxarifados em canteiros de obras de alto padrão.', logo: 'fa-building', image: 'https://i.postimg.cc/zXWfd02F/Construcao-Civil.jpg' },
-            { id: 'alimentos', name: 'Alimentos e Bebidas', model: 'Itumbiara / Nerópolis / RMBG', desc: 'Indústrias alimentícias e grandes cervejarias utilizam altíssima tecnologia fabril. Aprendizes dominam automação de processos, refrigeração e rigoroso controle de qualidade e segurança alimentar.', logo: 'fa-utensils', image: 'https://i.postimg.cc/TYZRggRj/Alimentos.jpg' }
+            { id: 'hypera', name: 'Polo Farmoquímico', model: 'Anápolis / Aparecida', desc: 'O polo atua em rotinas laboratoriais, logística avançada e automação industrial, sendo os jovens treinados com foco estratégico na sucessão interna para manter a alta precisão exigida pela indústria farmacêutica.', companies: ['Brainfarma', 'Hypera', 'Geolab', 'Equiplex', 'Vitamedic'], logo: 'fa-pills', image: 'https://i.postimg.cc/SsBhCp4S/Farmoquimica.jpg' },
+            { id: 'caoa', name: 'Polo Automotivo', model: 'Anápolis / Catalão', desc: 'O treinamento foca em manufatura avançada, mecatrônica e operação de processos robotizados, garantindo mão de obra altamente qualificada para as rigorosas linhas de montagem de veículos e maquinário agrícola.', companies: ['CAOA Montadora', 'HPE Automotores (Mitsubishi)', 'John Deere'], logo: 'fa-car', image: 'https://i.postimg.cc/0jTLMGpm/automotiva.jpg' },
+            { id: 'agro', name: 'Agroindústria', model: 'Rio Verde / Goiânia', desc: 'A aprendizagem integra os jovens na manutenção mecânica preventiva, automação elétrica e processos de beneficiamento, habilidades essenciais para garantir a continuidade produtiva ininterrupta durante os picos de safra do agronegócio goiano.', companies: ['Cargill', 'Nutriza', 'Nardini Agroindustrial', 'Bom Sucesso'], logo: 'fa-leaf', image: 'https://i.postimg.cc/CxzcTnDN/Agroindustria.webp' },
+            { id: 'mineracao', name: 'Mineração', model: 'Norte Goiano / Catalão', desc: 'Operações de alta complexidade utilizam a aprendizagem com foco em segurança extrema. Os jovens recebem intensa carga teórica em manutenção eletromecânica de equipamentos pesados antes do "on-the-job training" na planta de mineração.', companies: ['CMOC', 'Anglo American', 'Mosaic', 'SAMA Minerações'], logo: 'fa-hard-hat', image: 'https://i.postimg.cc/VvtzVkgd/Mineracao.jpg' },
+            { id: 'bioenergia', name: 'Bioenergia e Etanol', model: 'Sudoeste / Sul Goiano', desc: 'Os aprendizes atuam diretamente na manutenção de máquinas pesadas, elétrica industrial e em laboratórios químicos de grandes usinas sucroenergéticas, impulsionando a produção de energia limpa e liderando a transição energética no estado.', companies: ['São Martinho', 'BP Bunge', 'Atvos', 'Raízen', 'Cerradinho'], logo: 'fa-bolt', image: 'https://i.postimg.cc/L838ShpP/Bioenergia.webp' },
+            { id: 'vestuario', name: 'Polo de Confecções', model: 'Goiânia / Jaraguá / Taquaral', desc: 'A aprendizagem moderniza a tradição têxtil goiana, injetando tecnologia e agilidade no setor ao integrar jovens ao corte e costura industrial, modelagem digital (CAD) e logística de e-commerce.', companies: ['Cia. Hering', 'Veste S.A.', 'Nova Moda', 'MPL Indústria'], logo: 'fa-tshirt', image: 'https://i.postimg.cc/HsKLzFtV/Vestuario.jpg' },
+            { id: 'construcao', name: 'Construção Civil', model: 'Região Metropolitana', desc: 'Com forte aquecimento imobiliário e de infraestrutura, a formação abrange edificações, instalações elétricas e hidráulicas de ponta, além da gestão informatizada e eficiente de almoxarifados em canteiros de alto padrão.', companies: ['Elcop Engenharia', 'Construtora Ápia', 'Control Construções', 'Volga Engenharia'], logo: 'fa-building', image: 'https://i.postimg.cc/zXWfd02F/Construcao-Civil.jpg' },
+            { id: 'alimentos', name: 'Alimentos e Bebidas', model: 'RM Goiânia / Rio Verde / Itumbiara / Nerópolis', desc: 'Goiás é potência na produção alimentícia nacional. Os jovens são integrados a linhas de produção de altíssima tecnologia, dominando automação, refrigeração e protocolos rígidos de qualidade e segurança alimentar (Food Safety).', companies: ['BRF', 'JBS', 'Ambev', 'Heinz', 'Caramuru', 'Laticínios Bela Vista'], logo: 'fa-utensils', image: 'https://i.postimg.cc/TYZRggRj/Alimentos.jpg' }
         ];
 
         const careerTrails = {
@@ -851,8 +851,25 @@
                         </div>
 
                         <div className="p-8 overflow-y-auto">
-                            <p className="text-2xl text-slate-600 leading-relaxed">{data.desc}</p>
-                            <button onClick={onClose} className="mt-10 w-full py-4 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl text-lg font-bold active:scale-95 transition-all">
+                            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed mb-8">{data.desc}</p>
+                            
+                            {/* CAIXA DE TAGS DAS EMPRESAS */}
+                            {data.companies && data.companies.length > 0 && (
+                                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                    <h4 className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center">
+                                        <i className="fas fa-building text-blue-500 mr-2"></i> Algumas Empresas do Segmento que atuam com Aprendizes do SENAI
+                                    </h4>
+                                    <div className="flex flex-wrap gap-3">
+                                        {data.companies.map((company, idx) => (
+                                            <span key={idx} className="bg-white border border-blue-200 text-blue-800 px-4 py-2 rounded-xl text-sm font-bold shadow-sm flex items-center hover:bg-blue-50 hover:border-blue-400 transition-colors">
+                                                <i className="fas fa-check-circle text-blue-400 mr-2"></i> {company}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <button onClick={onClose} className="mt-8 w-full py-4 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl text-lg font-bold active:scale-95 transition-all">
                                 Fechar Janela
                             </button>
                         </div>
