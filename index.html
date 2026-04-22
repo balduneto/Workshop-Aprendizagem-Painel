@@ -1269,6 +1269,62 @@
                                     </div>
                                 </div>
                                 
+                                {/* NOVO: PASSO A PASSO DO CÁLCULO DA BASE */}
+                                <div className="mt-8 bg-white border border-slate-200 p-8 rounded-3xl shadow-sm text-left">
+                                    <h4 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                                        <i className="fas fa-list-ol text-blue-500 mr-3"></i> Entenda a Lógica do Cálculo
+                                    </h4>
+                                    <p className="text-slate-600 mb-8 font-medium text-lg leading-relaxed">
+                                        Para calcular a cota de aprendizes, não basta apenas olhar o número total de funcionários. Existe uma lógica rigorosa baseada nas funções que exigem formação profissional.
+                                    </p>
+
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                        {/* O QUE ENTRA */}
+                                        <div className="bg-blue-50/50 border border-blue-200 p-6 lg:p-8 rounded-2xl relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-16 h-16 bg-blue-100 rounded-bl-full flex items-start justify-end p-3">
+                                                <i className="fas fa-check text-blue-600 text-xl"></i>
+                                            </div>
+                                            <h5 className="font-black text-blue-900 text-lg uppercase tracking-wider mb-4">
+                                                1. A Base de Cálculo <span className="text-[10px] bg-blue-600 text-white px-2 py-1 rounded ml-2 align-middle">O QUE ENTRA</span>
+                                            </h5>
+                                            <p className="text-blue-800 font-medium leading-relaxed">
+                                                A cota é calculada <strong>por estabelecimento</strong> (cada CNPJ filial ou matriz separadamente). Devem ser incluídas <strong>todas as funções</strong> que exijam formação profissional, conforme determinado rigorosamente pela Classificação Brasileira de Ocupações (CBO).
+                                            </p>
+                                        </div>
+
+                                        {/* O QUE NÃO ENTRA */}
+                                        <div className="bg-rose-50/50 border border-rose-200 p-6 lg:p-8 rounded-2xl relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-16 h-16 bg-rose-100 rounded-bl-full flex items-start justify-end p-3">
+                                                <i className="fas fa-times text-rose-500 text-xl"></i>
+                                            </div>
+                                            <h5 className="font-black text-rose-900 text-lg uppercase tracking-wider mb-4">
+                                                2. Funções Excluídas <span className="text-[10px] bg-rose-500 text-white px-2 py-1 rounded ml-2 align-middle">O QUE NÃO ENTRA</span>
+                                            </h5>
+                                            <p className="text-rose-800 font-medium mb-4">
+                                                Para chegar ao número final da base de cálculo, você deve subtrair do total de empregados as seguintes categorias:
+                                            </p>
+                                            <ul className="space-y-3 text-sm text-rose-800 font-medium">
+                                                <li className="flex items-start">
+                                                    <i className="fas fa-minus-circle text-rose-400 mt-1 mr-3 flex-shrink-0"></i> 
+                                                    <span><strong>Cargos de Confiança:</strong> Funções de direção, gerência ou chefia (previstas no artigo 62 da CLT).</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <i className="fas fa-minus-circle text-rose-400 mt-1 mr-3 flex-shrink-0"></i> 
+                                                    <span><strong>Nível Superior ou Técnico:</strong> Funções que exijam habilitação acadêmica de nível superior ou técnico na sua essência.</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <i className="fas fa-minus-circle text-rose-400 mt-1 mr-3 flex-shrink-0"></i> 
+                                                    <span><strong>Trabalhadores Temporários:</strong> Profissionais contratados nos termos específicos da Lei nº 6.019/74.</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <i className="fas fa-minus-circle text-rose-400 mt-1 mr-3 flex-shrink-0"></i> 
+                                                    <span><strong>Terceirizados:</strong> Pois estes profissionais já contabilizam para a cota da empresa prestadora de serviços que os contratou.</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {/* ALERTA DA PORTARIA 3.872/2023 */}
                                 <div className="mt-8 bg-indigo-50 border border-indigo-100 p-8 rounded-3xl shadow-sm text-left flex flex-col md:flex-row items-center md:items-start gap-6 relative overflow-hidden">
                                     <div className="absolute top-0 right-0 -mt-6 -mr-6 opacity-5 pointer-events-none">
