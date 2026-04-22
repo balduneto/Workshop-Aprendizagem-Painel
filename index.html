@@ -153,24 +153,57 @@
                 title: 'O Gigante Orçamentário',
                 subtitle: 'O custo da formação profissional versus a arrecadação das prefeituras.',
                 stats: [
-                    { label: 'Investimento Anual SENAI-GO', value: 'R$ 125,7 Milhões' },
-                    { label: 'Municípios com Orçamento Menor', value: '116 (47% do Estado)' }
+                    { label: 'Custo Total do Ecossistema', value: 'R$ 167,2 Milhões' },
+                    { label: 'Supera o Orçamento de', value: '142 Municípios (57%)' }
                 ],
                 analysis: (
-                    <ul className="space-y-4 list-none text-base md:text-lg">
-                        <li className="flex items-start">
-                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
-                            <span><strong className="text-white">Maior que 116 cidades:</strong> O investimento anual da indústria na Aprendizagem supera o orçamento de 47% das prefeituras de Goiás.</span>
-                        </li>
-                        <li className="flex items-start">
-                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
-                            <span><strong className="text-white">Força Privada:</strong> O que 173 indústrias injetam sozinhas na formação de jovens é maior do que muitas prefeituras têm para manter saúde, educação e obras.</span>
-                        </li>
-                        <li className="flex items-start">
-                            <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
-                            <span><strong className="text-white">Eficiência Comprovada:</strong> É um exemplo prático de como o recurso privado qualifica a sociedade sem depender de impostos ou repasses do governo.</span>
-                        </li>
-                    </ul>
+                    <div className="space-y-6">
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 text-sm">
+                            {/* Painel 1: Orçamento */}
+                            <div className="bg-indigo-900/50 p-5 rounded-2xl border border-indigo-700/50 shadow-inner">
+                                <strong className="block text-white mb-3 border-b border-indigo-600/50 pb-2 uppercase tracking-wider text-xs">
+                                    <i className="fas fa-money-check-alt mr-2 text-indigo-400"></i> A Conta do Ecossistema (2025)
+                                </strong>
+                                <ul className="space-y-2 text-indigo-200">
+                                    <li className="flex justify-between items-center"><span>Empresas (Salários/Encargos):</span> <span className="font-bold text-white">R$ 125,7 Mi</span></li>
+                                    <li className="flex justify-between items-center"><span>SENAI (Operação/Custeio):</span> <span className="font-bold text-white">R$ 7,7 Mi</span></li>
+                                    <li className="flex justify-between items-center"><span>SENAI (Investimentos):</span> <span className="font-bold text-white">R$ 33,7 Mi</span></li>
+                                    <li className="flex justify-between items-center font-black text-green-400 mt-2 pt-3 border-t border-indigo-700/50 text-base">
+                                        <span>TOTAL INJETADO:</span> <span>R$ 167,2 Mi</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            {/* Painel 2: Infraestrutura */}
+                            <div className="bg-indigo-900/50 p-5 rounded-2xl border border-indigo-700/50 shadow-inner">
+                                <strong className="block text-white mb-3 border-b border-indigo-600/50 pb-2 uppercase tracking-wider text-xs">
+                                    <i className="fas fa-cogs mr-2 text-indigo-400"></i> A Máquina SENAI
+                                </strong>
+                                <ul className="space-y-2 text-indigo-200">
+                                    <li className="flex justify-between items-center"><span>Jovens Atendidos:</span> <span className="font-bold text-white bg-indigo-600 px-2 py-0.5 rounded text-xs">7.978 alunos</span></li>
+                                    <li className="flex justify-between items-center"><span>Unidades Operacionais:</span> <span className="font-bold text-white">18</span></li>
+                                    <li className="flex justify-between items-center"><span>Laboratórios de Prática:</span> <span className="font-bold text-white">730</span></li>
+                                    <li className="flex justify-between items-center"><span>Salas de Aula:</span> <span className="font-bold text-white">561</span></li>
+                                    <li className="flex justify-between items-center"><span>Corpo Docente:</span> <span className="font-bold text-white">485 instrutores</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <ul className="space-y-4 list-none text-base md:text-lg pt-2">
+                            <li className="flex items-start">
+                                <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                                <span><strong className="text-white">Soma de Esforços:</strong> Unindo os salários pagos pela indústria com a gigantesca infraestrutura (730 laboratórios) mantida pelo SENAI, o programa movimenta incríveis <strong>R$ 167,2 Milhões</strong> por ano.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                                <span><strong className="text-white">Maior que 142 cidades:</strong> Este montante monumental, dedicado exclusivamente à formação e renda de jovens, supera o orçamento integral de <strong>142 prefeituras de Goiás (cerca de 57% do Estado)</strong>.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
+                                <span><strong className="text-white">Eficiência Privada:</strong> Uma prova incontestável de que a parceria Indústria-SENAI gera uma estrutura educacional mais robusta e bem financiada do que a máquina pública da maioria absoluta dos municípios goianos.</span>
+                            </li>
+                        </ul>
+                    </div>
                 )
             },
             {
