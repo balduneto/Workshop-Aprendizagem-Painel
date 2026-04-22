@@ -1345,62 +1345,76 @@
                         </section>
 
                         {/* 8. CALL TO ACTION (SAIBA MAIS / QR CODE) */}
-                        <section className="bg-blue-700 rounded-[3rem] p-12 lg:p-16 relative overflow-hidden shadow-2xl mt-12 border-4 border-blue-500">
+                        <section className="bg-blue-700 rounded-[3rem] p-12 lg:p-20 relative overflow-hidden shadow-2xl mt-12 border-4 border-blue-500 flex items-center justify-center">
                             {/* Fundo decorativo */}
-                            <div className="absolute top-0 right-0 -mt-10 -mr-10 opacity-10 pointer-events-none">
-                                <i className="fas fa-qrcode text-[300px] text-white"></i>
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-10 opacity-5 pointer-events-none">
+                                <i className="fas fa-qrcode text-[400px] text-white"></i>
                             </div>
 
-                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-                                {/* Texto CTA */}
-                                <div className="text-center lg:text-left flex-1">
-                                    <span className="bg-blue-900 text-blue-200 text-sm font-bold px-4 py-2 rounded-full uppercase tracking-widest mb-6 inline-block">
-                                        Dê o Próximo Passo
-                                    </span>
-                                    <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                                        Pronto para transformar sua força de trabalho?
-                                    </h2>
-                                    <p className="text-2xl text-blue-100 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
-                                        Descubra como o SENAI Goiás pode apoiar sua indústria na implementação da Aprendizagem 4.0. Escaneie o QR Code ao lado e conecte-se aos nossos especialistas.
-                                    </p>
-                                    <div className="flex items-center justify-center lg:justify-start space-x-4">
-                                        <div className="flex -space-x-4">
-                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-100 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-industry"></i></div>
-                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-200 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-robot"></i></div>
-                                            <div className="w-12 h-12 rounded-full border-2 border-blue-600 bg-slate-300 flex items-center justify-center text-blue-600 text-xl"><i className="fas fa-laptop-code"></i></div>
+                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 xl:gap-20 w-full max-w-7xl mx-auto">
+                                
+                                {/* CARD ESQUERDO: NOVO QR Code Infográfico */}
+                                <div className="flex-shrink-0 bg-white p-8 rounded-[2.5rem] shadow-2xl transform transition-transform hover:scale-105 duration-300 w-full max-w-[280px] lg:max-w-[340px] flex flex-col items-center order-2 lg:order-1">
+                                    <div className="border-4 border-dashed border-blue-100 p-4 rounded-3xl flex justify-center items-center bg-white w-full aspect-square">
+                                        <img 
+                                            src="https://i.postimg.cc/vZTLfN2b/Infografico-da-Aprendizagem-Profissional-SENAI-Goias-1024.jpg" 
+                                            alt="QR Code Infográfico" 
+                                            className="w-full h-full object-contain rounded-xl"
+                                        />
+                                    </div>
+                                    <div className="mt-8 flex flex-col items-center justify-center w-full">
+                                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4 shadow-inner">
+                                            <i className="fas fa-file-pdf"></i>
                                         </div>
-                                        <span className="text-white font-bold text-lg">Junte-se à Indústria do Futuro</span>
+                                        <p className="text-center text-slate-800 font-black uppercase tracking-widest text-lg md:text-xl leading-tight">
+                                            Infográfico<br/>Completo
+                                        </p>
+                                        <p className="text-sm text-slate-500 font-semibold mt-2 text-center">Acesse a versão digital</p>
                                     </div>
                                 </div>
 
-                                {/* QR Code Card */}
-                                <div className="flex-shrink-0 bg-white p-6 rounded-[2rem] shadow-2xl transform transition-transform hover:scale-105 duration-300">
-                                    <div className="border-4 border-dashed border-blue-100 p-4 rounded-2xl flex justify-center items-center bg-slate-50">
+                                {/* TEXTO CENTRAL (Meio) */}
+                                <div className="text-center flex-1 order-1 lg:order-2 flex flex-col items-center justify-center px-4">
+                                    <span className="bg-blue-900/50 text-blue-100 text-sm font-bold px-6 py-2.5 rounded-full uppercase tracking-widest mb-8 inline-block border border-blue-500/30 backdrop-blur-sm">
+                                        Dê o Próximo Passo
+                                    </span>
+                                    <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-8 leading-tight drop-shadow-md">
+                                        Pronto para transformar sua força de trabalho?
+                                    </h2>
+                                    <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-10 max-w-lg mx-auto font-medium">
+                                        Aponte a câmera para os códigos ao lado. <strong>À esquerda</strong>, faça o download do material completo. <strong>À direita</strong>, fale com um de nossos especialistas.
+                                    </p>
+                                    
+                                    {/* Logo Quem Forma Transforma (Movida e Centralizada) */}
+                                    <div className="bg-white px-8 py-4 rounded-3xl shadow-2xl border-b-4 border-blue-200 hover:-translate-y-1 transition-transform">
                                         <img 
-                                            src="https://i.postimg.cc/zGY5bRKb/YEAnl-S.jpg" 
-                                            alt="QR Code SENAI" 
-                                            className="w-64 h-64 lg:w-72 lg:h-72 object-contain rounded-xl"
+                                            src="https://i.postimg.cc/5yZDHWc8/marca-QUEM-FORMA-TRANSFORMA-01.png" 
+                                            alt="Quem Forma Transforma" 
+                                            className="h-10 lg:h-14 object-contain"
                                         />
                                     </div>
-                                    <div className="mt-6 flex flex-col items-center justify-center">
-                                        <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-2 animate-bounce">
-                                            <i className="fas fa-camera"></i>
+                                </div>
+
+                                {/* CARD DIREITO: QR Code Fale Conosco (Original) */}
+                                <div className="flex-shrink-0 bg-white p-8 rounded-[2.5rem] shadow-2xl transform transition-transform hover:scale-105 duration-300 w-full max-w-[280px] lg:max-w-[340px] flex flex-col items-center order-3 lg:order-3">
+                                    <div className="border-4 border-dashed border-blue-100 p-4 rounded-3xl flex justify-center items-center bg-white w-full aspect-square">
+                                        <img 
+                                            src="https://i.postimg.cc/zGY5bRKb/YEAnl-S.jpg" 
+                                            alt="QR Code Especialistas" 
+                                            className="w-full h-full object-contain rounded-xl"
+                                        />
+                                    </div>
+                                    <div className="mt-8 flex flex-col items-center justify-center w-full">
+                                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4 shadow-inner">
+                                            <i className="fas fa-headset"></i>
                                         </div>
-                                        <p className="text-center text-slate-700 font-black uppercase tracking-widest text-lg">
-                                            Aponte a Câmera
+                                        <p className="text-center text-slate-800 font-black uppercase tracking-widest text-lg md:text-xl leading-tight">
+                                            Fale<br/>Conosco
                                         </p>
-                                        <p className="text-sm text-slate-500 font-medium mb-6">Saiba Mais</p>
-                                        
-                                        {/* Logo Quem Forma Transforma */}
-                                        <div className="w-full border-t border-slate-100 pt-6 flex justify-center">
-                                            <img 
-                                                src="https://i.postimg.cc/5yZDHWc8/marca-QUEM-FORMA-TRANSFORMA-01.png" 
-                                                alt="Quem Forma Transforma" 
-                                                className="h-10 lg:h-14 object-contain"
-                                            />
-                                        </div>
+                                        <p className="text-sm text-slate-500 font-semibold mt-2 text-center">Equipe de Especialistas</p>
                                     </div>
                                 </div>
+
                             </div>
                         </section>
 
