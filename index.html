@@ -182,7 +182,7 @@
                                 <ul className="space-y-2 text-indigo-200">
                                     <li className="flex justify-between items-center"><span>Jovens Atendidos:</span> <span className="font-bold text-white bg-indigo-600 px-2 py-0.5 rounded text-xs">7.978 alunos</span></li>
                                     <li className="flex justify-between items-center"><span>Unidades Operacionais:</span> <span className="font-bold text-white">18</span></li>
-                                    <li className="flex justify-between items-center"><span>Laboratórios de Prática:</span> <span className="font-bold text-white">730</span></li>
+                                    <li className="flex justify-between items-center"><span>Laboratórios de Prática:</span> <span className="font-bold text-white">25</span></li>
                                     <li className="flex justify-between items-center"><span>Salas de Aula:</span> <span className="font-bold text-white">561</span></li>
                                     <li className="flex justify-between items-center"><span>Corpo Docente:</span> <span className="font-bold text-white">485 instrutores</span></li>
                                 </ul>
@@ -192,7 +192,7 @@
                         <ul className="space-y-4 list-none text-base md:text-lg pt-2">
                             <li className="flex items-start">
                                 <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
-                                <span><strong className="text-white">Soma de Esforços:</strong> Unindo os salários pagos pela indústria com a gigantesca infraestrutura (730 laboratórios) mantida pelo SENAI, o programa movimenta incríveis <strong>R$ 167,2 Milhões</strong> por ano.</span>
+                                <span><strong className="text-white">Soma de Esforços:</strong> Unindo os salários pagos pela indústria com a gigantesca infraestrutura (25 laboratórios) mantida pelo SENAI, o programa movimenta incríveis <strong>R$ 167,2 Milhões</strong> por ano.</span>
                             </li>
                             <li className="flex items-start">
                                 <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
@@ -1488,6 +1488,36 @@
                                     </div>
                                 </div>
                             )}
+
+                            {/* NOVO BLOCO INTEGRADO: QR CODE FALE CONOSCO */}
+                            <div className="mt-12 bg-white rounded-[2.5rem] p-8 lg:p-10 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto relative overflow-hidden">
+                                <div className="absolute top-0 right-0 -mt-10 -mr-10 opacity-5 pointer-events-none">
+                                    <i className="fas fa-headset text-[250px] text-blue-900"></i>
+                                </div>
+                                
+                                <div className="flex-1 text-center md:text-left z-10">
+                                    <h3 className="text-3xl font-black text-slate-800 mb-4">Ainda tem dúvidas sobre as regras?</h3>
+                                    <p className="text-xl text-slate-600 leading-relaxed mb-6 font-medium">
+                                        A legislação de aprendizagem possui detalhes vitais sobre cálculos de cotas e CBO. Aponte a câmera para falar diretamente com nossa <strong>Equipe de Especialistas</strong>.
+                                    </p>
+                                </div>
+
+                                <div className="flex-shrink-0 bg-slate-50 p-5 rounded-3xl shadow-inner border border-slate-200 relative z-10 w-full max-w-[240px] flex flex-col items-center group hover:border-blue-300 transition-colors">
+                                    <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-4 w-full aspect-square">
+                                        <img 
+                                            src="https://i.postimg.cc/zGY5bRKb/YEAnl-S.jpg" 
+                                            alt="QR Code Especialistas" 
+                                            className="w-full h-full object-contain rounded-xl mix-blend-multiply group-hover:scale-105 transition-transform"
+                                        />
+                                    </div>
+                                    <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl mb-2 shadow-sm">
+                                        <i className="fas fa-headset"></i>
+                                    </div>
+                                    <p className="text-center text-slate-800 font-black uppercase tracking-widest text-sm">
+                                        Fale Conosco
+                                    </p>
+                                </div>
+                            </div>
                         </section>
 
                         {/* 5. TRILHAS COM EVOLUÇÃO SALARIAL E FONTES DE GOIÁS */}
@@ -1719,42 +1749,22 @@
                                 <i className="fas fa-qrcode text-[400px] text-white"></i>
                             </div>
 
-                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 xl:gap-20 w-full max-w-7xl mx-auto">
+                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 w-full max-w-5xl mx-auto">
                                 
-                                {/* CARD ESQUERDO: NOVO QR Code Infográfico */}
-                                <div className="flex-shrink-0 bg-white p-8 rounded-[2.5rem] shadow-2xl transform transition-transform hover:scale-105 duration-300 w-full max-w-[280px] lg:max-w-[340px] flex flex-col items-center order-2 lg:order-1">
-                                    <div className="border-4 border-dashed border-blue-100 p-4 rounded-3xl flex justify-center items-center bg-white w-full aspect-square">
-                                        <img 
-                                            src="https://i.postimg.cc/vZTLfN2b/Infografico-da-Aprendizagem-Profissional-SENAI-Goias-1024.jpg" 
-                                            alt="QR Code Infográfico" 
-                                            className="w-full h-full object-contain rounded-xl"
-                                        />
-                                    </div>
-                                    <div className="mt-8 flex flex-col items-center justify-center w-full">
-                                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4 shadow-inner">
-                                            <i className="fas fa-file-pdf"></i>
-                                        </div>
-                                        <p className="text-center text-slate-800 font-black uppercase tracking-widest text-lg md:text-xl leading-tight">
-                                            Infográfico<br/>Completo
-                                        </p>
-                                        <p className="text-sm text-slate-500 font-semibold mt-2 text-center">Acesse a versão digital</p>
-                                    </div>
-                                </div>
-
-                                {/* TEXTO CENTRAL (Meio) */}
-                                <div className="text-center flex-1 order-1 lg:order-2 flex flex-col items-center justify-center px-4">
+                                {/* TEXTO CENTRAL (Agora à esquerda no layout de 2 colunas) */}
+                                <div className="text-center lg:text-left flex-1 flex flex-col items-center lg:items-start justify-center px-4 order-2 lg:order-1">
                                     <span className="bg-blue-900/50 text-blue-100 text-sm font-bold px-6 py-2.5 rounded-full uppercase tracking-widest mb-8 inline-block border border-blue-500/30 backdrop-blur-sm">
                                         Dê o Próximo Passo
                                     </span>
                                     <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-8 leading-tight drop-shadow-md">
-                                        Pronto para transformar sua força de trabalho?
+                                        Leve este material com você
                                     </h2>
-                                    <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-10 max-w-lg mx-auto font-medium">
-                                        Aponte a câmera para os códigos ao lado. <strong>À esquerda</strong>, faça o download do material completo. <strong>À direita</strong>, fale com um de nossos especialistas.
+                                    <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-10 font-medium">
+                                        Aponte a câmera para o código ao lado e faça o download do <strong>Infográfico Completo</strong> em formato digital para consultar e compartilhar.
                                     </p>
                                     
-                                    {/* Logo Quem Forma Transforma (Movida e Centralizada) */}
-                                    <div className="bg-white px-8 py-4 rounded-3xl shadow-2xl border-b-4 border-blue-200 hover:-translate-y-1 transition-transform">
+                                    {/* Logo Quem Forma Transforma */}
+                                    <div className="bg-white px-8 py-4 rounded-3xl shadow-2xl border-b-4 border-blue-200 hover:-translate-y-1 transition-transform inline-block">
                                         <img 
                                             src="https://i.postimg.cc/5yZDHWc8/marca-QUEM-FORMA-TRANSFORMA-01.png" 
                                             alt="Quem Forma Transforma" 
@@ -1763,23 +1773,23 @@
                                     </div>
                                 </div>
 
-                                {/* CARD DIREITO: QR Code Fale Conosco (Original) */}
-                                <div className="flex-shrink-0 bg-white p-8 rounded-[2.5rem] shadow-2xl transform transition-transform hover:scale-105 duration-300 w-full max-w-[280px] lg:max-w-[340px] flex flex-col items-center order-3 lg:order-3">
+                                {/* CARD DO QR CODE (Único e de Maior Destaque) */}
+                                <div className="flex-shrink-0 bg-white p-8 rounded-[2.5rem] shadow-2xl transform transition-transform hover:scale-105 duration-300 w-full max-w-[280px] lg:max-w-[360px] flex flex-col items-center order-1 lg:order-2">
                                     <div className="border-4 border-dashed border-blue-100 p-4 rounded-3xl flex justify-center items-center bg-white w-full aspect-square">
                                         <img 
-                                            src="https://i.postimg.cc/zGY5bRKb/YEAnl-S.jpg" 
-                                            alt="QR Code Especialistas" 
+                                            src="https://i.postimg.cc/vZTLfN2b/Infografico-da-Aprendizagem-Profissional-SENAI-Goias-1024.jpg" 
+                                            alt="QR Code Infográfico" 
                                             className="w-full h-full object-contain rounded-xl"
                                         />
                                     </div>
                                     <div className="mt-8 flex flex-col items-center justify-center w-full">
-                                        <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4 shadow-inner">
-                                            <i className="fas fa-headset"></i>
+                                        <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mb-4 shadow-inner">
+                                            <i className="fas fa-file-pdf"></i>
                                         </div>
-                                        <p className="text-center text-slate-800 font-black uppercase tracking-widest text-lg md:text-xl leading-tight">
-                                            Fale<br/>Conosco
+                                        <p className="text-center text-slate-800 font-black uppercase tracking-widest text-xl lg:text-2xl leading-tight">
+                                            Infográfico<br/>Completo
                                         </p>
-                                        <p className="text-sm text-slate-500 font-semibold mt-2 text-center">Equipe de Especialistas</p>
+                                        <p className="text-md text-slate-500 font-semibold mt-2 text-center">Acesse a versão digital</p>
                                     </div>
                                 </div>
 
