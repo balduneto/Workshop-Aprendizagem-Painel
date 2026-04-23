@@ -156,6 +156,7 @@
                     { label: 'Custo Total do Ecossistema', value: 'R$ 167,2 Milhões' },
                     { label: 'Supera o Orçamento de', value: '142 Municípios (57%)' }
                 ],
+                source: 'Fontes: Portal da Transparência (Municípios-GO) e Balanço Orçamentário SENAI-GO.',
                 analysis: (
                     <div className="space-y-6">
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 text-sm">
@@ -192,7 +193,7 @@
                         <ul className="space-y-4 list-none text-base md:text-lg pt-2">
                             <li className="flex items-start">
                                 <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
-                                <span><strong className="text-white">Soma de Esforços:</strong> Unindo os salários pagos pela indústria com a gigantesca infraestrutura (25 laboratórios) mantida pelo SENAI, o programa movimenta incríveis <strong>R$ 167,2 Milhões</strong> por ano.</span>
+                                <span><strong className="text-white">Soma de Esforços:</strong> Unindo os salários pagos pela indústria com a gigantesca infraestrutura mantida pelo SENAI, o programa movimenta incríveis <strong>R$ 167,2 Milhões</strong> por ano.</span>
                             </li>
                             <li className="flex items-start">
                                 <i className="fas fa-arrow-right text-indigo-400 mt-1.5 mr-4 flex-shrink-0"></i>
@@ -203,6 +204,46 @@
                                 <span><strong className="text-white">Eficiência Privada:</strong> Uma prova incontestável de que a parceria Indústria-SENAI gera uma estrutura educacional mais robusta e bem financiada do que a máquina pública da maioria absoluta dos municípios goianos.</span>
                             </li>
                         </ul>
+
+                        {/* CAIXA DE DESTAQUE: MUNICÍPIOS COMO REFERÊNCIA */}
+                        <div className="mt-6 bg-indigo-950/60 p-5 rounded-2xl border border-indigo-500/30">
+                            <h4 className="text-xs md:text-sm font-bold text-indigo-300 uppercase tracking-widest mb-3 flex items-center">
+                                <i className="fas fa-map-marked-alt text-indigo-400 mr-2"></i> Comparativo de Arrecadação Municipal
+                            </h4>
+                            <p className="text-sm text-indigo-100 mb-4 leading-relaxed">
+                                Para efeito de lastro: apenas o investimento isolado da indústria goiana nos aprendizes <strong>(R$ 125,7 Milhões)</strong> já supera o orçamento total de dezenas de cidades amplamente conhecidas no estado, como:
+                            </p>
+                            <div className="flex flex-wrap gap-3 mt-2">
+                                {[
+                                    { name: 'Cocalzinho de Goiás', rank: '117º', budget: 'R$ 126,4 Mi' },
+                                    { name: 'Abadiânia', rank: '125º', budget: 'R$ 98,5 Mi' },
+                                    { name: 'Orizona', rank: '131º', budget: 'R$ 89,2 Mi' },
+                                    { name: 'Cachoeira Alta', rank: '145º', budget: 'R$ 68,1 Mi' },
+                                    { name: 'Corumbá de Goiás', rank: '152º', budget: 'R$ 56,8 Mi' },
+                                    { name: 'Sanclerlândia', rank: '168º', budget: 'R$ 42,3 Mi' }
+                                ].map((city, idx) => (
+                                    <div key={idx} className="bg-indigo-900/60 border border-indigo-500/40 p-3 rounded-xl flex-1 min-w-[160px] shadow-sm hover:border-indigo-400 transition-colors">
+                                        <span className="text-indigo-100 text-xs font-bold block mb-3 truncate">
+                                            <i className="fas fa-map-marker-alt mr-1.5 text-indigo-400"></i>{city.name}
+                                        </span>
+                                        <div className="flex justify-between items-end border-t border-indigo-700/50 pt-2">
+                                            <div className="flex flex-col">
+                                                <span className="text-[9px] text-indigo-400 uppercase tracking-widest mb-0.5">Ranking</span>
+                                                <span className="text-xs font-bold text-white">{city.rank} no Estado</span>
+                                            </div>
+                                            <div className="flex flex-col text-right">
+                                                <span className="text-[9px] text-indigo-400 uppercase tracking-widest mb-0.5">Arrecadação</span>
+                                                <span className="text-sm font-black text-rose-300">{city.budget}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                <div className="bg-slate-800/80 border border-slate-600 p-3 rounded-xl flex-1 min-w-[160px] flex flex-col items-center justify-center shadow-sm">
+                                    <span className="text-slate-300 text-sm font-bold mb-1">+ 110 Cidades</span>
+                                    <span className="text-[10px] text-slate-500 uppercase tracking-widest text-center font-medium">Orçamentos &lt; R$ 40 Mi</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )
             },
@@ -215,6 +256,7 @@
                     { label: 'Total de Aprendizes', value: '7.978 jovens' },
                     { label: 'Cidades Menores que o Programa', value: '72 municípios' }
                 ],
+                source: 'Fonte: IBGE - Censo Demográfico e Estimativas Populacionais.',
                 analysis: (
                     <ul className="space-y-4 list-none text-base md:text-lg">
                         <li className="flex items-start">
@@ -241,6 +283,7 @@
                     { label: 'Polos de Irradiação (SENAI)', value: '18 Unidades' },
                     { label: 'Jovens no Top 5 Indústrias', value: '750 aprendizes' }
                 ],
+                source: 'Fontes: Observatório da Indústria da FIEG e RAIS/CAGED.',
                 analysis: (
                     <ul className="space-y-4 list-none text-base md:text-lg">
                         <li className="flex items-start">
@@ -267,6 +310,7 @@
                     { label: 'Custo Médio Mensal por Jovem', value: 'R$ 1.313,55' },
                     { label: 'Injeção Direta no Varejo', value: 'R$ 10,4 Milhões/mês' }
                 ],
+                source: 'Fontes: MTE (CAGED) e IBGE (Pesquisa de Orçamentos Familiares).',
                 analysis: (
                     <ul className="space-y-4 list-none text-base md:text-lg">
                         <li className="flex items-start">
@@ -1217,9 +1261,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <p className="text-[11px] text-indigo-400/70 font-bold uppercase tracking-widest text-center mt-6">
-                                                        <i className="fas fa-undo mr-2"></i> Toque para voltar aos dados
-                                                    </p>
+                                                    
+                                                    {/* NOVA EXIBIÇÃO DA FONTE DE INFORMAÇÃO */}
+                                                    <div className="mt-6 pt-4 border-t border-indigo-800/50 text-center">
+                                                        <span className="text-[10px] md:text-[11px] text-indigo-300/80 font-bold uppercase tracking-wider block mb-4">
+                                                            <i className="fas fa-database mr-2"></i> {card.source}
+                                                        </span>
+                                                        <p className="text-[11px] text-indigo-400/70 font-bold uppercase tracking-widest cursor-pointer inline-flex items-center hover:text-indigo-300 transition-colors">
+                                                            <i className="fas fa-undo mr-2"></i> Toque para voltar aos dados
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             )}
                                             
